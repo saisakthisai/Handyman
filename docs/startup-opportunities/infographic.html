@@ -100,6 +100,60 @@
   @media (max-width: 820px) {
     .forces, .buckets, .method { grid-template-columns: 1fr; }
   }
+
+  /* Drill-down hint + interactive rows */
+  .hint {
+    color: var(--muted); font-size: 13px; margin: -8px 0 22px;
+    padding: 6px 12px; border-left: 2px solid var(--accent);
+    background: rgba(255, 209, 102, 0.04); border-radius: 0 6px 6px 0;
+  }
+  .bucket li {
+    cursor: pointer; transition: background 0.15s, padding-left 0.15s;
+    user-select: none;
+  }
+  .bucket li:hover { background: rgba(255, 209, 102, 0.05); padding-left: 4px; }
+  .bucket li:active { background: rgba(255, 209, 102, 0.1); }
+
+  /* Modal */
+  .modal {
+    position: fixed; inset: 0; background: rgba(5, 7, 12, 0.78);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    display: none; align-items: flex-start; justify-content: center;
+    padding: 60px 20px 40px; overflow-y: auto; z-index: 100;
+  }
+  .modal[aria-hidden="false"] { display: flex; }
+  .modal-card {
+    max-width: 720px; width: 100%;
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px;
+    padding: 36px 36px 28px; position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    animation: pop 0.18s ease-out;
+  }
+  @keyframes pop {
+    from { transform: translateY(8px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    background: none; border: none; color: var(--muted);
+    font-size: 28px; line-height: 1; cursor: pointer; padding: 4px 12px;
+    border-radius: 8px;
+  }
+  .modal-close:hover { color: var(--ink); background: rgba(255,255,255,0.04); }
+  .modal-id {
+    display: inline-block; background: var(--accent); color: var(--bg);
+    font-weight: 800; font-size: 12px; padding: 4px 10px; border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+  .modal-title { margin: 12px 0 24px; font-size: 26px; letter-spacing: -.01em; line-height: 1.2; }
+  .modal section { margin-bottom: 22px; }
+  .modal section h4 {
+    margin: 0 0 8px; font-size: 11px; letter-spacing: 0.18em;
+    color: var(--accent); text-transform: uppercase; font-weight: 700;
+  }
+  .modal section p { margin: 0; color: var(--ink); line-height: 1.55; font-size: 15px; }
+  .modal section ul { margin: 0; padding-left: 18px; color: var(--ink); }
+  .modal section ul li { margin: 6px 0; line-height: 1.5; font-size: 15px; }
 </style>
 </head>
 <body>
@@ -147,6 +201,7 @@
   </div>
 
   <h2>The 8 buckets <span class="num">— where the 36 ideas actually live</span></h2>
+  <p class="hint">↳ Double-click any idea below to expand it into <i>what it is · why it matters · action items · additional notes.</i></p>
   <div class="buckets">
 
     <div class="bucket b1">
@@ -263,5 +318,343 @@
   </div>
 
 </div>
+
+<!-- Drill-down modal -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="m-title">
+  <div class="modal-card" role="document">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-id" id="m-id">#01</div>
+    <h3 class="modal-title" id="m-title">—</h3>
+    <section>
+      <h4>What it is</h4>
+      <p id="m-what">—</p>
+    </section>
+    <section>
+      <h4>Why it's significant</h4>
+      <p id="m-why">—</p>
+    </section>
+    <section>
+      <h4>Action items</h4>
+      <ul id="m-actions"></ul>
+    </section>
+    <section>
+      <h4>Additional details</h4>
+      <p id="m-notes">—</p>
+    </section>
+  </div>
+</div>
+
+<script>
+const IDEAS = {
+  1: {
+    t: "Loneliness — third spaces &amp; IRL community",
+    w: "Paid IRL formats (run clubs, dinners, members' rooms, gatherings) or apps whose output is real-world hangouts, replacing the collapsed 'third place' between home and work.",
+    s: "The US Surgeon General called loneliness a public health crisis on par with smoking. The default belonging venues (church, league, neighborhood cafe) have largely disappeared, leaving a structural unmet need.",
+    a: ["Interview 30 people in your city about the last 5 real-life friendships they made after age 30.", "Prototype one $40–80/mo membership format for a tight niche (new parents, transplants, sober crowd).", "Study Timeleft, Groove, Pie, Belong.club — pick a niche they don't serve."],
+    n: "Margins are brutal if you own real estate. Hybrid 'software-light + IRL-heavy' is the cleanest economic shape so far."
+  },
+  2: {
+    t: "Managed AI employees for businesses",
+    w: "Sell a fully-managed AI worker (SDR, support rep, recruiter, AR collector) as a service — outcome guaranteed, humans in the loop — rather than as software the customer has to operate.",
+    s: "Most SMBs cannot deploy agents themselves. The market is moving from selling tools to selling labor, and labor is roughly a 10× larger spend category than software.",
+    a: ["Pick one role × one vertical (e.g., AR collections for HVAC contractors).", "Land 3 design partners at $3–8k/mo with money-back guarantees on hit metrics.", "Build internal tooling LAST — start humans + GPT, automate the parts that hurt."],
+    n: "See 11x, Artisan, Crew AI, Decagon. Defensibility lives in workflow integration and customer data — not the model layer."
+  },
+  3: {
+    t: "Elder tech for boomers",
+    w: "Consumer products designed for the 70M+ US boomers — fall prevention, hearing, medication, social, transportation — with UX built for them, not their kids.",
+    s: "Largest wealth-holding demographic in history, served either by clunky grandparent-themed gear or by mainstream tech with hostile UX (tiny fonts, no support).",
+    a: ["Spend 20 hours in senior centers and assisted-living lobbies before writing a line of code.", "Pick one job-to-be-done: stay independent, feel less alone, not forget meds.", "Distribution wedges: AARP partnerships, geriatric care managers, adult-child gifting funnels."],
+    n: "Buyer and user often differ (adult child pays, parent uses). Medicare Advantage reimbursement is an emerging revenue lever."
+  },
+  4: {
+    t: "Action apps that DO things",
+    w: "Mobile apps whose primary verb is the agent acting on the user's behalf — booking, buying, scheduling, negotiating, disputing — rather than a feed to scroll.",
+    s: "The next platform shift is from 'apps you stare at' to 'apps that complete intents.' Time-on-app inverts as a metric: value is in time saved, not time spent.",
+    a: ["Choose a high-frequency, high-friction task (cancel subs, dispute charges, book service).", "Build it as chat-first or one-tap, no dashboards.", "Charge per successful action, not subscription."],
+    n: "Learn from DoNotPay's overpromise and Rabbit R1's wrong form factor. Phones are still the right device."
+  },
+  5: {
+    t: "Trades matching — electricians, plumbers, HVAC",
+    w: "Two-sided platform or operating system for skilled trades — discovery, scheduling, dispatch, pricing — built around the supply-constrained tradesperson, not the homeowner.",
+    s: "Trades workforce is aging out faster than it's being replaced. Supply scarcity is structural for the next 15+ years; homeowners increasingly can't find anyone reliable.",
+    a: ["Pick one trade in one metro and run it as a concierge before writing software.", "Sign up the top 50 contractors; give them lead-gen + scheduling free, monetize the homeowner.", "Map adjacencies: Picasso, Workiz, Service Titan."],
+    n: "Service Titan owns enterprise. The opportunity is sub-10-person shops and a homeowner-facing trusted brand."
+  },
+  6: {
+    t: "Small social — group chats as products",
+    w: "Branded private spaces for 5–50 people with no public feed, no algorithm — persistent chat + structure (events, rituals, shared docs, member directory).",
+    s: "Public social peaked and the action moved to group chats, Discord, WhatsApp. But those tools are generic; purpose-built versions for hosts and small communities are open.",
+    a: ["Pick a use-case (hobbyists, founder peer groups, neighbors, alumni).", "Layer rituals on top of chat: weekly check-ins, intro rotations, shared resources.", "Charge the host, not the members — SaaS for community runners."],
+    n: "Geneva, Circle, Heartbeat, Stir are early. Economics look like SaaS, not social — which is a feature, not a bug."
+  },
+  7: {
+    t: "Shopping agents — recommend &amp; buy for you",
+    w: "Agents that learn your taste and budget, surface products from across the web, and complete checkout — replacing the search-and-compare loop.",
+    s: "Search-based commerce is being eaten by conversational discovery. Whoever first owns 'trust + checkout' for a category captures enormous downstream intent.",
+    a: ["Start in a high-taste category (skincare, men's clothing, gifts).", "Build the memory layer first — what does this user actually like?", "Negotiate affiliate or wholesale terms directly; do not rely on Amazon."],
+    n: "Daydream, Perplexity Shopping, ChatGPT Shopping are all chasing this. Niche-down beats horizontal."
+  },
+  8: {
+    t: "Live shows &amp; unscripted creator content",
+    w: "Creator-led brands built around live, low-production, unscripted formats — talk shows, gameshows, watch-alongs — distributed across YouTube, TikTok Live, Twitch, Kick.",
+    s: "Audiences are exhausted by overproduced content and AI slop. 'A real human, live, right now' is the scarcest format on the internet.",
+    a: ["Pick one host or a rotating duo and commit to a recurring slot (e.g., M/W/F 8pm).", "Optimize for parasocial repeat viewership, not virality.", "Monetize through products and sponsorships, not pre-roll ads."],
+    n: "Format defensibility (Hot Ones, Chicken Shop Date) outlasts personality alone. Production discipline matters more than budget."
+  },
+  9: {
+    t: "AI tutors that adapt through conversation",
+    w: "Subject-specific tutors that diagnose what a learner knows, adapt mid-conversation, and run a curriculum that updates per attempt — not a one-size lesson plan.",
+    s: "Bloom's 2-sigma problem: 1:1 tutoring produces 2 standard deviations of improvement. LLMs collapse the cost from $100/hr to near-zero.",
+    a: ["Pick one subject × one stage (SAT math, AP Bio, intro Python).", "B2B2C is the cleanest GTM — sell to parents or schools first.", "Measure outcomes (test scores, retention) and publish them publicly."],
+    n: "Khanmigo, Synthesis, Speak are early. Differentiation lives in curriculum design and outcome data, not the model."
+  },
+  10: {
+    t: "Pay-per-outcome SaaS pricing",
+    w: "Replace seat-based SaaS with pricing tied to outcomes (closed-won deal, resolved ticket, paid invoice) — newly feasible because software now does the work, not the user.",
+    s: "Buyers refuse to pay per seat when AI removes the seat. Vendors that align price to value win bigger budgets faster and starve incumbents.",
+    a: ["Pick one B2B workflow with a clean, measurable outcome.", "Price at 10–25% of the value created; benchmark against the human cost.", "Build airtight attribution before you raise prices."],
+    n: "Intercom Fin, Zendesk AI, Sierra are all moving to outcome pricing. The hard part is attribution, not pricing itself."
+  },
+  11: {
+    t: "AI service advisor for dealerships",
+    w: "A voice/SMS/chat AI that handles the 80% of dealership inbound calls that are repetitive — hours, service status, appointments, basic quotes — 24/7.",
+    s: "Dealerships lose 30–40% of inbound calls outside hours. Service advisors are expensive, inconsistent, and overloaded. Single-vertical AI wins decisively.",
+    a: ["Sell to one dealership group; integrate with their DMS (CDK, Reynolds &amp; Reynolds).", "Charge per booked service appointment, not per seat.", "Build voice + SMS + web chat from day one — none alone is enough."],
+    n: "Numa and MyKaarma are early. DMS vendors and OEM partnerships are the reseller unlock."
+  },
+  12: {
+    t: "Training non-technical people to operate agents",
+    w: "Bootcamps, certifications, and embedded talent programs that turn ordinary knowledge workers into 'agent operators' who deploy, supervise, and tune agents.",
+    s: "Every company will need humans who can run an AI workforce. Almost nobody is trained for it. The 'prompt engineer' role evolves into the 'agent operator' role.",
+    a: ["Build a 4-week curriculum focused on one function (sales ops, customer success, recruiting).", "Place graduates into companies as paid placements; the company pays the fee.", "Corporate L&amp;D budgets close faster than consumer course sales."],
+    n: "Maven, Section, Reforge are adjacent. The corporate enablement budget is the real wallet."
+  },
+  13: {
+    t: "Anti-screen kits — curated offline experiences",
+    w: "Boxes or subscriptions of offline activities, puzzles, projects, and social games delivered to your door — explicitly screen-free, explicitly anti-feed.",
+    s: "Backlash against screens is real and accelerating, especially with parents and kids. The 'analog' market is reflexively willing to spend.",
+    a: ["Pick a target audience (families with kids 6–12, adult friend groups, couples).", "Quarterly box with one project + one ritual, not random tchotchkes.", "Distribution: parenting newsletters, Substacks, podcast ads."],
+    n: "Compare KiwiCo (kids), Box of Awesome (gifts), HelloFresh (logistics). Operational logistics is the moat."
+  },
+  14: {
+    t: "New formats of spiritual gatherings",
+    w: "Modern, religious-or-secular belonging formats — meditation cohorts, men's groups, grief circles, sober gatherings, Sunday Assembly-style services — built as a brand.",
+    s: "Religious affiliation is in freefall but the underlying needs for meaning and ritual haven't gone anywhere. Belonging at scale is the obvious gap.",
+    a: ["Pick a demographic and a frequency (weekly, monthly).", "Run the first 6 events yourself; test if people return on their own.", "Pricing: $20–60/mo membership — events are the product, not a perk."],
+    n: "Othership (sauna + breathwork), Sunday Assembly, Holy Yoga are reference points. Host quality and brand beat technology."
+  },
+  15: {
+    t: "Longevity biomarkers you actively manage",
+    w: "Direct-to-consumer blood, DNA, epigenetic, and VO₂max testing bundled with a coaching layer that translates results into a weekly protocol the user actually follows.",
+    s: "Function Health proved the appetite. Consumers want a dashboard for the body, not a one-off lab report they don't understand.",
+    a: ["Bundle 3 tests + quarterly review + protocol updates at one annual price.", "Partner with a med-licensed network for orders and physician review.", "Wedge: women 35–55, athletes, post-treatment cancer patients."],
+    n: "Function, Superpower, Healthspan, Hone Health are early. Insurance won't pay — this is a cash-pay category."
+  },
+  16: {
+    t: "Action apps (mobile) — restated",
+    w: "Same as #4 — Greg lists it twice because action apps is the single biggest mobile platform shift on the entire list.",
+    s: "Repetition is signal. When the most opinionated person on consumer tech repeats himself, the message is: do not miss this.",
+    a: ["See #4. Pick one verb (book, cancel, return, dispute) and own it end-to-end."],
+    n: "Treat #4 and #16 as one entry weighted 2×, not as two separate ideas."
+  },
+  17: {
+    t: "Digital verification you're a real human",
+    w: "Privacy-preserving proofs of personhood (zero-knowledge, biometric, device-attested) that platforms can require to gate signups, comments, transactions.",
+    s: "AI slop is breaking online trust. Within 2 years every consumer platform will need a 'is this a real human?' check at the auth layer.",
+    a: ["Pick one downstream platform type (dating, marketplaces, reviews) and become its default trust API.", "Do not try to be the global ID — be the integration every app calls.", "Threat-model before you build. This is a security product, not a CRUD app."],
+    n: "Worldcoin (controversial), Persona, iProov, Privado ID. Distribution to platforms is the moat, not the cryptography."
+  },
+  18: {
+    t: "Agent permissions, security, audit trails",
+    w: "Identity, access management, logging, and audit specifically for AI agents — the SOC 2 / Okta / Datadog layer for an autonomous workforce.",
+    s: "Every enterprise deploying agents needs this and is currently DIY-ing or doing without. CIOs are actively blocking deployments because of the gap.",
+    a: ["Sell to security and IT buyers, not engineering.", "Pick one foundation first: identity-for-agents OR comprehensive audit logging.", "Get SOC 2 yourself before pitching enterprise."],
+    n: "Foundation labs are deliberately leaving this layer to partners. Adjacent reference points: WorkOS, Auth0, Stytch."
+  },
+  19: {
+    t: "AI-native media — distribution first, products later",
+    w: "Build a media brand using AI to produce 10–100× volume across newsletter / video / social, then monetize via a product the audience asks for — not by selling ads.",
+    s: "Distribution is the new moat. The cost of producing content collapsed; the cost of attention rose. Whoever owns attention can launch any product cheaply.",
+    a: ["Pick a niche + a host persona.", "Daily or weekly cadence across 3 channels for 12+ months minimum.", "Survey the audience and build what they ask for; don't sell ads."],
+    n: "Morning Brew → Sidekick, The Hustle → HubSpot acquisition, Workweek's brand-houses. The pattern is repeatable."
+  },
+  20: {
+    t: "Family ops automation",
+    w: "Tools that absorb the invisible logistical labor of running a family — school forms, schedules, RSVPs, doctor visits, kid handoffs — usually shouldered by one parent.",
+    s: "Dual-income households are drowning in coordination. This is the highest-value, lowest-tech zone in consumer software.",
+    a: ["Interview 30 moms first; the work is mostly invisible and you won't guess it.", "Start with one painful surface (school comms, after-school logistics).", "Pricing: $20–40/mo per family."],
+    n: "Maple, Skylight Calendar, Cozi. Voice assistants underperform here; agents that handle email/SMS for the parent are the unlock."
+  },
+  21: {
+    t: "Bookkeeping agents — per-transaction pricing",
+    w: "AI bookkeepers that categorize, reconcile, and close books monthly for SMBs — priced per transaction (not per seat or per hour) so the unit economics work at small scale.",
+    s: "Bookkeeping is one of the most automatable knowledge-work jobs. There are 30M+ US SMBs underserved at prices humans can't profitably meet.",
+    a: ["Sell to 5–50 employee businesses through accountants who already serve them.", "Integrate deep with QBO, Xero, and bank feeds.", "Augment the CPA first — don't try to replace them, move downstream over time."],
+    n: "Pilot.com (services), Digits, Puzzle, Ramp Bookkeeping are reference points. The CPA distribution channel is the cheat code."
+  },
+  22: {
+    t: "Brand-owned resale",
+    w: "Platforms or turnkey solutions that let brands run their own secondary market — trade-ins, certified used, re-commerce — instead of ceding it to eBay and Poshmark.",
+    s: "Every premium brand wants to control resale: better margin, the customer data, the sustainability story. Patagonia, Lululemon, Canada Goose already do it.",
+    a: ["Pick a brand vertical (apparel, watches, furniture, kids gear).", "Sell white-labeled resale as a managed service.", "Revenue model: take a cut + per-listing fee."],
+    n: "Trove, Archive, Recurate are early. Watch what Shopify ships natively — that's the existential threat."
+  },
+  23: {
+    t: "Adult learning for joy — pottery, woodworking, drawing",
+    w: "In-person or hybrid programs for hobby mastery, marketed at professionals seeking offline, tangible, social skill-building — not credentialing.",
+    s: "Burned-out professionals want craft, mastery, presence. The market gym studios captured in the 2010s is wide open for hobbies in the 2020s.",
+    a: ["Pick one craft + city; rent studio time before signing a lease.", "Cohort-based: 6-week classes with fixed start dates.", "Pricing: $400–800 per cohort."],
+    n: "Compare Equinox and SoulCycle (premium hospitality) and 92Y (legacy nonprofit). The vibe to sell is 'studio,' not 'class.'"
+  },
+  24: {
+    t: "At-home skincare diagnostics",
+    w: "Phone-scan or device-based skin assessments that produce a personalized protocol (products + routine) and track change over weeks and months.",
+    s: "Skincare is a $200B+ category with no objective measurement layer. Consumers are buying blind and brands prefer to keep it that way.",
+    a: ["Build the scan first, the product recommendations last.", "Partner with a derm network for clinical validation.", "Subscription = diagnostic + monthly product fulfillment in one bundle."],
+    n: "HelloAva, Proven, Atolla (acquired). Computer vision quality and derm validation are the real gates."
+  },
+  25: {
+    t: "Precision farming for small farms",
+    w: "Affordable hardware + software for sub-500-acre family farms — satellite imagery, soil sensors, crop planning, yield optimization — at one-tenth of enterprise pricing.",
+    s: "Enterprise ag-tech (Climate FieldView, John Deere) ignores the bottom 90% of US farms by acreage. Bottom-up tooling is missing entirely.",
+    a: ["Sell through co-ops, ag-extension offices, and FFA chapters.", "Price at $30–80/mo, not $50k/year.", "Bundle financing, crop insurance, and marketplace access."],
+    n: "Farmers Business Network, Granular, Bushel are nearby. Bottlenecks: distribution, trust, and buyer data-literacy."
+  },
+  26: {
+    t: "Subscription pest prevention",
+    w: "Recurring service model for pest prevention (quarterly treatment, monitoring, included re-treats) — the lawn-care subscription model applied to pest.",
+    s: "Pest control today is ~90% reactive — homeowner sees a roach, calls. Prevention-as-subscription delivers ~5× LTV and ~3× margins.",
+    a: ["Pick a metro + a price point ($45–90/mo).", "Buy or partner with a local pest co for the ops.", "Sell on neighborhood platforms (Nextdoor, HOA Facebook groups)."],
+    n: "TruGreen for lawns is the playbook. Roll-ups (Aptive, Saela) are scaling fast; the tech overlay is still thin."
+  },
+  27: {
+    t: "On-device AI for regulated verticals",
+    w: "Small models running on-device (laptop, phone, hospital server) so healthcare, legal, and financial data never leaves the customer's environment.",
+    s: "Regulated verticals legally cannot send PHI/PII to the cloud. On-device AI unlocks markets today's frontier models can't serve.",
+    a: ["Pick one regulation (HIPAA, GDPR, SOC 2 Type II) and one workflow.", "Use small open models (Llama, Gemma, Phi), fine-tuned and quantized.", "Sell to compliance officers, not engineers."],
+    n: "Hugging Face, Cohere, Mistral are the picks-and-shovels. Distribution = compliance teams, not dev-rel."
+  },
+  28: {
+    t: "AI characters with real memory &amp; relationships",
+    w: "Game and companion AI that remembers, evolves, and forms genuine arcs with the player across sessions — beyond stateless chatbots.",
+    s: "Games are the highest-stakes test of LLM persistence and personality. Once it works in games, every interactive medium adopts it.",
+    a: ["Start with one character in one game genre (RPG, dating sim, indie horror).", "Memory + voice + animation pipeline matter equally.", "Distribute on Steam and Itch first, mobile later."],
+    n: "Inworld AI, Convai, Character.ai are early. The constraint is latency and per-session cost, not model quality."
+  },
+  29: {
+    t: "Agent-mediated matchmaking",
+    w: "Dating where an AI agent represents each user — vets matches, runs initial conversation, books the date — instead of users swiping at strangers.",
+    s: "Dating apps have peaked at user fatigue. The next era is delegated discovery: agents do the work; humans show up to vetted dinners.",
+    a: ["Pick a demographic (high-intent 28–38, post-divorce, expats).", "Charge $40–150/mo — not freemium.", "Identity verification is the wedge — safety is the moat."],
+    n: "Keeper, Sitch, Iris are early. Hinge is too large to flip its model quickly; that's the opening."
+  },
+  30: {
+    t: "Adaptive fitness coaching that rewrites daily",
+    w: "Coaching apps that ingest wearable data, sleep, mood, and schedule and re-plan today's workout — not a static 12-week program.",
+    s: "Static plans fail adherence within 2 weeks. Real coaches adjust constantly. AI can do that at scale for $30/mo.",
+    a: ["Wedge: one population (postpartum, masters athletes, return-from-injury).", "Wearable integration day one (Whoop, Oura, Garmin, Apple Watch).", "Make the coach a persona, not a generic chat."],
+    n: "Future, Ladder, Whoop Coach, Strength.AI are reference points. Outcome data beats production value."
+  },
+  31: {
+    t: "Autonomous trip planning &amp; rebooking",
+    w: "Travel agent agent that books, monitors, and rebooks flights/hotels/cars on the user's behalf — handles delays, price drops, IRROPS without the user touching it.",
+    s: "Travel is the most agent-shaped category — high stakes, structured APIs, expensive failures. B2C winner here owns billions in GMV.",
+    a: ["Wedge: business travelers or families — don't say 'all travel.'", "Build rebooking-on-disruption first; it's the highest pain point.", "Negotiate GDS access (Sabre, Amadeus) or partner-channel access."],
+    n: "Mindtrip, Layla, Otto are early. Expedia and Booking will counterattack; speed and personality are the moat."
+  },
+  32: {
+    t: "Personalized nutrition from blood &amp; gut biome",
+    w: "Pair lab tests (CGM, blood panel, gut microbiome) with a food protocol + grocery integration so people actually change behavior, not just read a report.",
+    s: "Generic nutrition advice is dead. Biomarker-driven n-of-1 protocols are the next era; behavior-change tools are the real product.",
+    a: ["Bundle test + protocol + grocery order so users don't have to plan or shop.", "Partner with Instacart, Whole Foods, Thrive Market.", "Don't sell tests — sell outcomes (energy, weight, lipid panel improvement)."],
+    n: "Levels, ZOE, Viome are early. Diagnostic-only models stall on adherence; vertically integrated wins."
+  },
+  33: {
+    t: "Pet health monitoring",
+    w: "Wearables, in-home sensors, and AI symptom-triage for pets — the Apple Watch + Babylon Health bundle for dogs and cats.",
+    s: "Pet spending is $140B/yr and rising; pet insurance is exploding. Yet almost no tech layer exists between pet owner and vet.",
+    a: ["Pick one species × one health domain (dog GI, cat kidney, senior pet mobility).", "Sell direct-to-owner + via vet clinics in parallel.", "Bundle with pet-insurance partners for distribution."],
+    n: "Fi (collars), Whistle, Vetster (telehealth). The vet channel is gatekept; brand-to-consumer is faster to scale."
+  },
+  34: {
+    t: "AI-native defense compliance &amp; security",
+    w: "Compliance, audit, and red-team tools built for defense, intel, and federal contractors — FedRAMP, CMMC, ITAR-aware, AI-first.",
+    s: "Defense is moving fast on AI but compliance lags badly. There is a regulatory + procurement moat that incumbents cannot cross quickly.",
+    a: ["Get a federal contracting vehicle, or partner with someone who has one.", "Wedge: CMMC compliance for sub-tier defense suppliers.", "Hire ex-DoD and ex-Palantir from day one."],
+    n: "Anduril, Palantir, Vannevar are the heavyweights. The SMB defense-supplier tier is the underserved opening."
+  },
+  35: {
+    t: "Physical AI — $30 brains on existing hardware",
+    w: "Cheap embedded compute + foundation models that retrofit existing physical products (appliances, tools, factory hardware) into 'smart' equivalents without redesigning the device.",
+    s: "Robotics has been gated on cost of intelligence. With small models on $30 boards, the long tail of physical products suddenly gets a brain.",
+    a: ["Pick a product category (industrial sensors, kitchen appliances, retail fixtures).", "Partner with an OEM that already owns distribution.", "Sell the chip + SDK + reference design, not the end product."],
+    n: "Raspberry Pi, NVIDIA Jetson, Coral are reference points. Physical AI is more reference-design business than consumer hardware."
+  },
+  36: {
+    t: "Analog &amp; nostalgia products",
+    w: "Physical, slow, handmade goods (vinyl, paper journals, mechanical typewriters, board games) explicitly counter-positioned against digital and AI saturation.",
+    s: "As AI consumes more of life, the premium on physical, irreplaceable, human-made goods rises sharply. Vinyl already proved the curve.",
+    a: ["Pick a category with collector psychology (notebooks, audio, kitchenware, games).", "Distribute through Substacks and podcasts, not Amazon.", "Margin > volume; small brand wins this game by design."],
+    n: "Field Notes, Baronfig, Ooni, vinyl resurgence. The customer is paying for meaning, not utility — price accordingly."
+  }
+};
+
+(function () {
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('modal-close');
+  const idEl = document.getElementById('m-id');
+  const titleEl = document.getElementById('m-title');
+  const whatEl = document.getElementById('m-what');
+  const whyEl = document.getElementById('m-why');
+  const actionsEl = document.getElementById('m-actions');
+  const notesEl = document.getElementById('m-notes');
+
+  function decode(s) {
+    const t = document.createElement('textarea');
+    t.innerHTML = s;
+    return t.value;
+  }
+
+  function openModal(id) {
+    const idea = IDEAS[id];
+    if (!idea) return;
+    idEl.textContent = '#' + String(id).padStart(2, '0');
+    titleEl.textContent = decode(idea.t);
+    whatEl.textContent = decode(idea.w);
+    whyEl.textContent = decode(idea.s);
+    actionsEl.innerHTML = '';
+    idea.a.forEach(a => {
+      const li = document.createElement('li');
+      li.textContent = decode(a);
+      actionsEl.appendChild(li);
+    });
+    notesEl.textContent = decode(idea.n);
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    document.querySelector('.modal-card').scrollTop = 0;
+  }
+
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.bucket li').forEach(li => {
+    li.addEventListener('dblclick', () => {
+      const span = li.querySelector('.id');
+      if (!span) return;
+      const id = parseInt(span.textContent.trim(), 10);
+      if (Number.isFinite(id)) openModal(id);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+  });
+})();
+</script>
 </body>
 </html>

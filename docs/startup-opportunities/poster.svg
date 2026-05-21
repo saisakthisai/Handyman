@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 1820" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b0d12"/>
+      <stop offset="1" stop-color="#11141c"/>
+    </linearGradient>
+    <style>
+      .ink { fill: #e9eaee; }
+      .muted { fill: #8a90a2; }
+      .accent { fill: #ffd166; }
+      .small { font-size: 12px; }
+      .tiny  { font-size: 11px; }
+      .chip  { font-size: 12px; }
+      .label { font-size: 11px; letter-spacing: 0.18em; fill: #ffd166; font-weight: 700; }
+      .h1    { font-size: 54px; font-weight: 800; letter-spacing: -1px; }
+      .h2    { font-size: 22px; font-weight: 700; }
+      .h3    { font-size: 17px; font-weight: 700; }
+      .body  { font-size: 14px; }
+      .it    { font-size: 12px; font-style: italic; fill: #8a90a2; }
+      .num   { font-size: 11px; font-weight: 800; fill: #0b0d12; }
+    </style>
+  </defs>
+
+  <rect width="1240" height="1820" fill="url(#bg)"/>
+
+  <!-- HEADER -->
+  <g transform="translate(60,80)">
+    <text class="label">GREG EISENBERG · 36 IDEAS · DECODED</text>
+    <text class="ink h1" x="0" y="56">The 36 biggest startup</text>
+    <text class="ink h1" x="0" y="116">opportunities <tspan class="accent">— decoded.</tspan></text>
+    <text class="muted body" x="0" y="160">One thesis. Three master forces. Eight buckets. Thirty-six ideas.</text>
+  </g>
+
+  <!-- THESIS STRIP -->
+  <g transform="translate(60,290)">
+    <rect width="1120" height="92" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <text class="label" x="20" y="-6">
+      <tspan dy="14" fill="#0b0d12"> </tspan>
+    </text>
+    <rect x="20" y="-9" width="80" height="18" fill="#0b0d12"/>
+    <text class="label" x="28" y="4">THE THESIS</text>
+    <text class="ink body" x="24" y="36">
+      <tspan font-weight="700">AI compresses the cost of doing things.</tspan>
+      <tspan class="muted"> That destroys old business models, frees human time, and starves us of connection.</tspan>
+    </text>
+    <text class="muted body" x="24" y="64">
+      Every idea is either <tspan fill="#e9eaee" font-weight="700">riding the compression</tspan>,
+      selling the <tspan fill="#e9eaee" font-weight="700">picks &amp; shovels</tspan>, or selling the
+      <tspan fill="#e9eaee" font-weight="700">antidote</tspan>.
+    </text>
+  </g>
+
+  <!-- 3 MASTER FORCES -->
+  <g transform="translate(60,410)">
+    <text class="label" y="0">THE 3 MASTER FORCES</text>
+
+    <g transform="translate(0,18)">
+      <rect width="360" height="86" rx="12" fill="#11141c" stroke="#1f2330"/>
+      <rect width="360" height="3" rx="0" fill="#ff6b6b"/>
+      <text class="ink h3" x="16" y="34">A · AI is eating work</text>
+      <text class="muted small" x="16" y="56">Agents replace job functions;</text>
+      <text class="muted small" x="16" y="72">infra to run them appears underneath.</text>
+    </g>
+
+    <g transform="translate(380,18)">
+      <rect width="360" height="86" rx="12" fill="#11141c" stroke="#1f2330"/>
+      <rect width="360" height="3" fill="#4ecdc4"/>
+      <text class="ink h3" x="16" y="34">B · Vacuum of meaning</text>
+      <text class="muted small" x="16" y="56">Machines do more → demand for</text>
+      <text class="muted small" x="16" y="72">connection, embodiment, authenticity spikes.</text>
+    </g>
+
+    <g transform="translate(760,18)">
+      <rect width="360" height="86" rx="12" fill="#11141c" stroke="#1f2330"/>
+      <rect width="360" height="3" fill="#ffd166"/>
+      <text class="ink h3" x="16" y="34">C · Old models break first</text>
+      <text class="muted small" x="16" y="56">Pricing, packaging, demographics</text>
+      <text class="muted small" x="16" y="72">shift faster than incumbents can.</text>
+    </g>
+  </g>
+
+  <!-- 8 BUCKETS GRID -->
+  <text class="label" x="60" y="568">THE 8 BUCKETS — WHERE THE 36 IDEAS LIVE</text>
+
+  <!-- Row 1 -->
+  <!-- B1: Loneliness -->
+  <g transform="translate(60,588)">
+    <rect width="550" height="290" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="290" fill="#ff6b6b"/>
+    <text class="muted tiny" x="20" y="28">01 · FORCE B</text>
+    <text class="ink h2" x="20" y="54">Loneliness &amp; Belonging</text>
+    <text class="it" x="20" y="74">atomized society · religion decline · post-COVID</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#ff6b6b"/><text class="num" x="13" y="14" text-anchor="middle">1</text>
+      <text class="ink chip" x="36" y="14">Third spaces · IRL community apps</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#ff6b6b"/><text class="num" x="13" y="14" text-anchor="middle">6</text>
+      <text class="ink chip" x="36" y="14">Small social — group chats as products</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#ff6b6b"/><text class="num" x="13" y="14" text-anchor="middle">14</text>
+      <text class="ink chip" x="36" y="14">New formats of spiritual gatherings</text>
+    </g>
+    <g transform="translate(20,192)">
+      <rect width="26" height="20" rx="5" fill="#ff6b6b"/><text class="num" x="13" y="14" text-anchor="middle">23</text>
+      <text class="ink chip" x="36" y="14">Adult learning for joy — pottery, drawing</text>
+    </g>
+    <g transform="translate(20,224)">
+      <rect width="26" height="20" rx="5" fill="#ff6b6b"/><text class="num" x="13" y="14" text-anchor="middle">29</text>
+      <text class="ink chip" x="36" y="14">Agent-mediated matchmaking</text>
+    </g>
+  </g>
+
+  <!-- B2: AI replaces job -->
+  <g transform="translate(630,588)">
+    <rect width="550" height="290" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="290" fill="#4ecdc4"/>
+    <text class="muted tiny" x="20" y="28">02 · FORCE A</text>
+    <text class="ink h2" x="20" y="54">AI replaces a job (B2B agents)</text>
+    <text class="it" x="20" y="74">labor cost × LLM capability crossing</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#4ecdc4"/><text class="num" x="13" y="14" text-anchor="middle">2</text>
+      <text class="ink chip" x="36" y="14">Managed AI employees for businesses</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#4ecdc4"/><text class="num" x="13" y="14" text-anchor="middle">11</text>
+      <text class="ink chip" x="36" y="14">AI service advisor for dealerships</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#4ecdc4"/><text class="num" x="13" y="14" text-anchor="middle">21</text>
+      <text class="ink chip" x="36" y="14">Bookkeeping agents · per-transaction pricing</text>
+    </g>
+    <g transform="translate(20,192)">
+      <rect width="26" height="20" rx="5" fill="#4ecdc4"/><text class="num" x="13" y="14" text-anchor="middle">34</text>
+      <text class="ink chip" x="36" y="14">AI-native defense, security &amp; compliance</text>
+    </g>
+  </g>
+
+  <!-- Row 2 -->
+  <!-- B3: AI replaces behavior -->
+  <g transform="translate(60,898)">
+    <rect width="550" height="350" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="350" fill="#5b8def"/>
+    <text class="muted tiny" x="20" y="28">03 · FORCE A</text>
+    <text class="ink h2" x="20" y="54">AI replaces a behavior (action layer)</text>
+    <text class="it" x="20" y="74">agents that DO, not apps you stare at</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">4</text>
+      <text class="ink chip" x="36" y="14">Action apps that do things</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">7</text>
+      <text class="ink chip" x="36" y="14">Shopping agents — recommend &amp; buy for you</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">9</text>
+      <text class="ink chip" x="36" y="14">AI tutors that adapt through conversation</text>
+    </g>
+    <g transform="translate(20,192)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">16</text>
+      <text class="ink chip" x="36" y="14">Action apps (he says it twice — he means it)</text>
+    </g>
+    <g transform="translate(20,224)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">28</text>
+      <text class="ink chip" x="36" y="14">AI game characters with memory &amp; relationships</text>
+    </g>
+    <g transform="translate(20,256)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">30</text>
+      <text class="ink chip" x="36" y="14">Adaptive fitness coaching · rewrites daily</text>
+    </g>
+    <g transform="translate(20,288)">
+      <rect width="26" height="20" rx="5" fill="#5b8def"/><text class="num" x="13" y="14" text-anchor="middle">31</text>
+      <text class="ink chip" x="36" y="14">Autonomous trip planning &amp; rebooking</text>
+    </g>
+  </g>
+
+  <!-- B4: Demographic wedges -->
+  <g transform="translate(630,898)">
+    <rect width="550" height="350" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="350" fill="#f7b267"/>
+    <text class="muted tiny" x="20" y="28">04 · FORCE B</text>
+    <text class="ink h2" x="20" y="54">Demographic wedges</text>
+    <text class="it" x="20" y="74">populations shifting faster than markets</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#f7b267"/><text class="num" x="13" y="14" text-anchor="middle">3</text>
+      <text class="ink chip" x="36" y="14">Elder tech for 70M boomers</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#f7b267"/><text class="num" x="13" y="14" text-anchor="middle">5</text>
+      <text class="ink chip" x="36" y="14">Matching platforms for trades</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#f7b267"/><text class="num" x="13" y="14" text-anchor="middle">20</text>
+      <text class="ink chip" x="36" y="14">Family ops automation for parents</text>
+    </g>
+    <g transform="translate(20,192)">
+      <rect width="26" height="20" rx="5" fill="#f7b267"/><text class="num" x="13" y="14" text-anchor="middle">25</text>
+      <text class="ink chip" x="36" y="14">Precision farming tools for small farms</text>
+    </g>
+
+    <!-- Sub-card: Counter-positioning sits underneath demographics -->
+    <text class="muted tiny" x="20" y="240">05 · FORCE B</text>
+    <text class="ink h3" x="20" y="262">Counter-positioning vs AI</text>
+    <text class="it" x="20" y="278">every trend creates its opposite</text>
+
+    <g transform="translate(20,290)">
+      <rect width="26" height="20" rx="5" fill="#b388eb"/><text class="num" x="13" y="14" text-anchor="middle">13</text>
+      <text class="ink chip" x="36" y="14">Curated offline experience kits — anti-screen</text>
+    </g>
+    <g transform="translate(20,318)">
+      <rect width="26" height="20" rx="5" fill="#b388eb"/><text class="num" x="13" y="14" text-anchor="middle">17</text>
+      <text class="ink chip" x="36" y="14">Digital verification that you're a real human</text>
+    </g>
+    <!-- 36 placed but tight; we'll absorb into the bucket text -->
+  </g>
+
+  <!-- Row 3 -->
+  <!-- B6: Body & bio -->
+  <g transform="translate(60,1268)">
+    <rect width="550" height="270" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="270" fill="#06d6a0"/>
+    <text class="muted tiny" x="20" y="28">06 · FORCE B</text>
+    <text class="ink h2" x="20" y="54">Body &amp; bio optimization</text>
+    <text class="it" x="20" y="74">at-home sensors × longevity zeitgeist</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#06d6a0"/><text class="num" x="13" y="14" text-anchor="middle">15</text>
+      <text class="ink chip" x="36" y="14">Longevity biomarkers you actively manage</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#06d6a0"/><text class="num" x="13" y="14" text-anchor="middle">24</text>
+      <text class="ink chip" x="36" y="14">At-home skincare diagnostics</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#06d6a0"/><text class="num" x="13" y="14" text-anchor="middle">32</text>
+      <text class="ink chip" x="36" y="14">Personalized nutrition · blood + biome</text>
+    </g>
+    <g transform="translate(20,192)">
+      <rect width="26" height="20" rx="5" fill="#06d6a0"/><text class="num" x="13" y="14" text-anchor="middle">33</text>
+      <text class="ink chip" x="36" y="14">Pet health monitoring — $140B, no tech</text>
+    </g>
+
+    <!-- Counter card extension: idea 36 (analog nostalgia) goes here -->
+    <g transform="translate(20,228)">
+      <rect width="26" height="20" rx="5" fill="#b388eb"/><text class="num" x="13" y="14" text-anchor="middle">36</text>
+      <text class="ink chip" x="36" y="14">Analog &amp; nostalgia products — vinyl, paper, handmade</text>
+      <text class="muted tiny" x="36" y="30">(belongs to bucket 05 · counter-positioning)</text>
+    </g>
+  </g>
+
+  <!-- B7: Business model flips -->
+  <g transform="translate(630,1268)">
+    <rect width="550" height="270" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="270" fill="#ef476f"/>
+    <text class="muted tiny" x="20" y="28">07 · FORCE C</text>
+    <text class="ink h2" x="20" y="54">Business-model flips</text>
+    <text class="it" x="20" y="74">pricing &amp; packaging, not new tech</text>
+
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#ef476f"/><text class="num" x="13" y="14" text-anchor="middle">10</text>
+      <text class="ink chip" x="36" y="14">Pay-per-outcome SaaS pricing</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#ef476f"/><text class="num" x="13" y="14" text-anchor="middle">22</text>
+      <text class="ink chip" x="36" y="14">Brand-owned resale · own the secondary market</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#ef476f"/><text class="num" x="13" y="14" text-anchor="middle">26</text>
+      <text class="ink chip" x="36" y="14">Subscription pest prevention (not reactive)</text>
+    </g>
+
+    <text class="muted tiny" x="20" y="216">Pattern: a vertical changed its pricing model.</text>
+    <text class="muted tiny" x="20" y="232">Find others that haven't followed yet.</text>
+  </g>
+
+  <!-- Row 4: B8 picks & shovels, full width -->
+  <g transform="translate(60,1558)">
+    <rect width="1120" height="220" rx="14" fill="#11141c" stroke="#1f2330"/>
+    <rect width="4" height="220" fill="#a0aec0"/>
+    <text class="muted tiny" x="20" y="28">08 · FORCE A</text>
+    <text class="ink h2" x="20" y="54">Picks &amp; shovels for the AI era</text>
+    <text class="it" x="20" y="74">infrastructure always lags the gold rush</text>
+
+    <!-- 6 items in 2 columns -->
+    <g transform="translate(20,96)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">8</text>
+      <text class="ink chip" x="36" y="14">Live unscripted content as a creator format</text>
+    </g>
+    <g transform="translate(20,128)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">12</text>
+      <text class="ink chip" x="36" y="14">Training non-technical people to operate agents</text>
+    </g>
+    <g transform="translate(20,160)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">18</text>
+      <text class="ink chip" x="36" y="14">Agent permissions, security, audit trails</text>
+    </g>
+
+    <g transform="translate(580,96)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">19</text>
+      <text class="ink chip" x="36" y="14">AI-native media — distribution first, products later</text>
+    </g>
+    <g transform="translate(580,128)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">27</text>
+      <text class="ink chip" x="36" y="14">On-device AI for healthcare, legal, finance</text>
+    </g>
+    <g transform="translate(580,160)">
+      <rect width="26" height="20" rx="5" fill="#a0aec0"/><text class="num" x="13" y="14" text-anchor="middle">35</text>
+      <text class="ink chip" x="36" y="14">Physical AI — $30 brains on existing hardware</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text class="muted tiny" x="620" y="1808" text-anchor="middle">
+    Decoded view of Greg Eisenberg's 36 startup opportunities · 3 forces · 8 buckets · 36 ideas
+  </text>
+</svg>

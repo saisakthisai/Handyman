@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The 36 Biggest Startup Opportunities — Decoded</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-2: #11141c;
+    --ink: #e9eaee;
+    --muted: #8a90a2;
+    --line: #1f2330;
+    --accent: #ffd166;
+
+    --c1: #ff6b6b;  /* Loneliness */
+    --c2: #4ecdc4;  /* AI replaces job */
+    --c3: #5b8def;  /* AI replaces consumer behavior */
+    --c4: #f7b267;  /* Demographics */
+    --c5: #b388eb;  /* Counter-positioning */
+    --c6: #06d6a0;  /* Body / bio */
+    --c7: #ef476f;  /* Business model flips */
+    --c8: #a0aec0;  /* Picks & shovels */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 64px 28px 96px; }
+
+  .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .18em;
+    font-size: 12px; font-weight: 700; }
+  h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.05; margin: 14px 0 10px; letter-spacing: -.02em; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--muted); font-size: 18px; max-width: 760px; line-height: 1.5; }
+
+  .thesis {
+    margin: 44px 0 64px; padding: 28px 32px; background: var(--bg-2);
+    border: 1px solid var(--line); border-radius: 16px;
+    font-size: 19px; line-height: 1.55; position: relative;
+  }
+  .thesis::before { content: "THE THESIS"; position: absolute; top: -10px; left: 20px;
+    background: var(--bg); padding: 2px 10px; color: var(--accent); font-size: 11px;
+    letter-spacing: .18em; font-weight: 700; }
+  .thesis b { color: #fff; }
+
+  h2 { font-size: 28px; margin: 56px 0 18px; letter-spacing: -.01em; }
+  h2 .num { color: var(--muted); font-weight: 500; }
+
+  .forces { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .force { padding: 22px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; }
+  .force .tag { font-size: 11px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+  .force h3 { margin: 8px 0 8px; font-size: 19px; line-height: 1.3; }
+  .force p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+  .force.a { border-top: 3px solid #ff6b6b; }
+  .force.b { border-top: 3px solid #4ecdc4; }
+  .force.c { border-top: 3px solid #ffd166; }
+
+  .buckets { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .bucket {
+    background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px 22px 18px; position: relative; overflow: hidden;
+  }
+  .bucket::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--bar, var(--accent));
+  }
+  .bucket .num {
+    position: absolute; right: 18px; top: 14px; font-size: 44px; line-height: 1;
+    color: var(--bar, var(--accent)); opacity: .25; font-weight: 800;
+  }
+  .bucket h3 { margin: 0 0 4px; font-size: 19px; }
+  .bucket .driver { font-size: 12px; color: var(--muted); font-style: italic; margin-bottom: 14px; }
+  .bucket ul { list-style: none; padding: 0; margin: 0; }
+  .bucket li {
+    display: flex; gap: 10px; padding: 7px 0; border-top: 1px dashed var(--line);
+    font-size: 14px; line-height: 1.4;
+  }
+  .bucket li:first-child { border-top: 0; }
+  .bucket li .id {
+    flex: 0 0 32px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bar, var(--accent)); color: #0b0d12; font-weight: 700; font-size: 12px;
+    border-radius: 6px;
+  }
+
+  .b1 { --bar: var(--c1); } .b2 { --bar: var(--c2); }
+  .b3 { --bar: var(--c3); } .b4 { --bar: var(--c4); }
+  .b5 { --bar: var(--c5); } .b6 { --bar: var(--c6); }
+  .b7 { --bar: var(--c7); } .b8 { --bar: var(--c8); }
+
+  .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 24px; }
+  .method .m {
+    padding: 18px 20px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .method .m b { display: block; margin-bottom: 6px; font-size: 15px; }
+  .method .m p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  .footer { margin-top: 64px; color: var(--muted); font-size: 12px; text-align: center; }
+  .footer a { color: var(--muted); }
+
+  @media (max-width: 820px) {
+    .forces, .buckets, .method { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Greg Eisenberg · 36 ideas · decoded</div>
+  <h1>The hidden <span>operating system</span><br/>behind 36 startup ideas.</h1>
+  <p class="sub">A list that looks like brainstorming is actually one tight thesis applied 36 times.
+    Here's the framework underneath — the master forces, the 8 buckets they generate, and how he
+    likely produced the list in the first place.</p>
+
+  <div class="thesis">
+    AI compresses the cost of doing things. That <b>destroys old business models</b>,
+    <b>frees up human time</b>, and <b>starves us of connection</b>. Every opportunity
+    on the list is either riding the compression, selling the picks &amp; shovels, or selling the antidote.
+  </div>
+
+  <h2>How he generated the list <span class="num">— the 6 lenses</span></h2>
+  <div class="method">
+    <div class="m"><b>1. Demographic deltas</b><p>Supply shrinking or demand swelling that nobody priced in. Boomers aging, trades retiring, loneliness rising.</p></div>
+    <div class="m"><b>2. AI-applied-to-X scanning</b><p>Walk every industry. Ask: what does an agent do here that a SaaS tool can't?</p></div>
+    <div class="m"><b>3. Business-model flips</b><p>One vertical changed pricing/packaging. Who else hasn't followed? (Lawn → pest, seats → outcomes.)</p></div>
+    <div class="m"><b>4. Counter-trend reactions</b><p>For every dominant trend, what's the backlash market? AI slop → human verification, analog, anti-screen.</p></div>
+    <div class="m"><b>5. Underserved-yet-massive</b><p>$100B+ industries with embarrassingly little tech. Pets, small farms, family logistics.</p></div>
+    <div class="m"><b>6. Psychological needs</b><p>Maslow's middle layers are the most monetizable right now: belonging, meaning, mastery.</p></div>
+  </div>
+
+  <h2>The 3 master forces <span class="num">— everything reduces to these</span></h2>
+  <div class="forces">
+    <div class="force a">
+      <div class="tag">Force A</div>
+      <h3>AI is eating work</h3>
+      <p>Agents replace job functions and the infrastructure to operate them appears underneath.</p>
+    </div>
+    <div class="force b">
+      <div class="tag">Force B</div>
+      <h3>AI is creating a vacuum of meaning &amp; humanness</h3>
+      <p>As machines do more, demand for connection, embodiment, and authenticity spikes.</p>
+    </div>
+    <div class="force c">
+      <div class="tag">Force C</div>
+      <h3>Old models break before new ones settle</h3>
+      <p>Pricing, packaging, and demographics shift faster than incumbents can.</p>
+    </div>
+  </div>
+
+  <h2>The 8 buckets <span class="num">— where the 36 ideas actually live</span></h2>
+  <div class="buckets">
+
+    <div class="bucket b1">
+      <div class="num">01</div>
+      <h3>The Loneliness &amp; Belonging Economy</h3>
+      <div class="driver">Atomized society · post-COVID isolation · religion decline</div>
+      <ul>
+        <li><span class="id">1</span>Solving loneliness · third spaces · IRL community apps</li>
+        <li><span class="id">6</span>Small social · group chats as products, no feed</li>
+        <li><span class="id">14</span>New formats of spiritual gatherings</li>
+        <li><span class="id">23</span>Adult learning for joy — pottery, woodworking, drawing</li>
+        <li><span class="id">29</span>Agent-mediated matchmaking</li>
+      </ul>
+    </div>
+
+    <div class="bucket b2">
+      <div class="num">02</div>
+      <h3>AI Replaces a Job Function (B2B agents)</h3>
+      <div class="driver">Labor cost × LLM capability crossing the line</div>
+      <ul>
+        <li><span class="id">2</span>Managed AI employees for businesses</li>
+        <li><span class="id">11</span>AI service advisor for dealerships</li>
+        <li><span class="id">21</span>Bookkeeping agents — charge per transaction</li>
+        <li><span class="id">34</span>AI-native security &amp; compliance for defense</li>
+      </ul>
+    </div>
+
+    <div class="bucket b3">
+      <div class="num">03</div>
+      <h3>AI Replaces a Consumer Behavior (action layer)</h3>
+      <div class="driver">Agents that DO, not apps you stare at</div>
+      <ul>
+        <li><span class="id">4</span>Action apps that do things</li>
+        <li><span class="id">7</span>Shopping agents that recommend &amp; buy for you</li>
+        <li><span class="id">9</span>AI tutors that adapt through conversation</li>
+        <li><span class="id">16</span>Action apps (he repeats it — he means it)</li>
+        <li><span class="id">28</span>AI game characters with real memory &amp; relationships</li>
+        <li><span class="id">30</span>Adaptive fitness coaching that rewrites daily</li>
+        <li><span class="id">31</span>Autonomous trip planning &amp; rebooking</li>
+      </ul>
+    </div>
+
+    <div class="bucket b4">
+      <div class="num">04</div>
+      <h3>Demographic Wedges</h3>
+      <div class="driver">Populations shifting faster than markets</div>
+      <ul>
+        <li><span class="id">3</span>Elder tech for 70M boomers</li>
+        <li><span class="id">5</span>Matching platforms for trades — supply shrinking</li>
+        <li><span class="id">20</span>Family ops automation for parents</li>
+        <li><span class="id">25</span>Precision farming tools for small farms</li>
+      </ul>
+    </div>
+
+    <div class="bucket b5">
+      <div class="num">05</div>
+      <h3>Counter-Positioning Against AI Itself</h3>
+      <div class="driver">Every dominant trend creates its opposite</div>
+      <ul>
+        <li><span class="id">13</span>Curated offline experience kits — anti-screen</li>
+        <li><span class="id">17</span>Digital verification that you're a real human</li>
+        <li><span class="id">36</span>Analog &amp; nostalgia products — vinyl, paper, handmade</li>
+      </ul>
+    </div>
+
+    <div class="bucket b6">
+      <div class="num">06</div>
+      <h3>Body &amp; Bio Optimization</h3>
+      <div class="driver">At-home sensors × longevity zeitgeist</div>
+      <ul>
+        <li><span class="id">15</span>Longevity biomarkers you actively manage</li>
+        <li><span class="id">24</span>At-home skincare diagnostics — scan, protocol, track</li>
+        <li><span class="id">32</span>Personalized nutrition from blood &amp; biome data</li>
+        <li><span class="id">33</span>Pet health monitoring — $140B, almost no tech</li>
+      </ul>
+    </div>
+
+    <div class="bucket b7">
+      <div class="num">07</div>
+      <h3>Business-Model Flips</h3>
+      <div class="driver">Pricing &amp; packaging innovation, not new tech</div>
+      <ul>
+        <li><span class="id">10</span>Pay-per-outcome SaaS pricing</li>
+        <li><span class="id">22</span>Brand-owned resale — controlling the secondary market</li>
+        <li><span class="id">26</span>Subscription pest <i>prevention</i> instead of reactive</li>
+      </ul>
+    </div>
+
+    <div class="bucket b8">
+      <div class="num">08</div>
+      <h3>Picks &amp; Shovels for the AI Era</h3>
+      <div class="driver">Infrastructure always lags the gold rush</div>
+      <ul>
+        <li><span class="id">8</span>Live unscripted content as a creator format</li>
+        <li><span class="id">12</span>Training non-technical people to operate agents</li>
+        <li><span class="id">18</span>Agent permissions, security, audit trails</li>
+        <li><span class="id">19</span>AI-native media — distribution first, products later</li>
+        <li><span class="id">27</span>On-device AI for healthcare, legal, finance</li>
+        <li><span class="id">35</span>Physical AI — $30 brains on existing hardware</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h2>Buckets → master forces</h2>
+  <div class="thesis" style="margin-top:8px">
+    <b>Force A — AI eats work</b> generates buckets 02, 03, 08.<br/>
+    <b>Force B — Meaning vacuum</b> generates buckets 01, 04, 05, 06.<br/>
+    <b>Force C — Old models break</b> generates bucket 07 (and supercharges 02 &amp; 03).
+  </div>
+
+  <div class="footer">
+    Source list: Greg Eisenberg · Decoded view · viewable offline.
+  </div>
+
+</div>
+</body>
+</html>

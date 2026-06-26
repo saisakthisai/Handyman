@@ -102,6 +102,15 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Five passes on ONE design doc. Three behavioral lessons for the
+  agent: (1) **Hunt the hardest requirement first, unprompted** — a human had to
+  find the central hole every round (memo quality → model ownership → evaluator
+  validity); the agent should attack its own weakest point before handing over.
+  (2) **"One more pass to 9+" is a stop-failure tell** — it offered research-grade
+  rigor (inter-rater agreement, score-drift) for a *3–5 founder manual pilot* =
+  over-engineering; knowing good-enough is a skill. (3) **Spec polishing is not
+  progress** — 5 passes, zero code; the risk stopped being the spec and became the
+  absence of a build. Reinforces #7 (ship over polish) and #8 (rigor to phase).
 - **2026-06-26** — Audit-the-ruler goes recursive. Once the product *contains* a
   quality gate (an evaluator/LLM-judge), that evaluator is itself a ruler and needs
   the same audit: **an unvalidated model scoring a model's output is the flattering-

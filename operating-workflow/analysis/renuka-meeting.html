@@ -544,6 +544,23 @@
   }
   .divergence-item .body { font-size: 13px; color: var(--text); line-height: 1.7; }
   .divergence-item .body strong { color: var(--text-bright); }
+  .drive {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--border);
+    font-size: 12px;
+    color: var(--teal);
+    line-height: 1.6;
+  }
+  .drive::before {
+    content: '→ Drive toward: ';
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .drive.clarify::before { content: '⚑ Clarify: '; color: var(--amber); }
+  .drive.listen::before { content: '◆ Listen for: '; color: var(--purple); }
 
   /* ── Brainstorm Questions (checkboxes) ── */
   .q-section { margin-bottom: 28px; }
@@ -1464,27 +1481,33 @@
     <ul class="divergence-list">
       <li class="divergence-item">
         <div class="num">1</div>
-        <div class="body"><strong>Integrated core + walls</strong> — you run personal as a peer silo. I'm making personal/professional the integrating core that client/company walls plug into. I integrate my life; I wall my clients and companies.</div>
+        <div class="body"><strong>Integrated core + walls</strong> — you run personal as a peer silo. I'm making personal/professional the integrating core that client/company walls plug into. I integrate my life; I wall my clients and companies.
+        <span class="drive">her honest read on whether an integrated core is a strength or a liability — she chose silos for a reason, so surface the specific failure she's protecting against. If she has no strong objection, that's a green light; if she does, I want the concrete scenario, not a vibe.</span></div>
       </li>
       <li class="divergence-item">
         <div class="num">2</div>
-        <div class="body"><strong>Hermes as chief of staff</strong> — a coordinating layer above the vault you don't have yet. A role, not one process: a local plane reads confidential data, a cloud plane coordinates on redacted metadata.</div>
+        <div class="body"><strong>Hermes as chief of staff</strong> — a coordinating layer above the vault you don't have yet. A role, not one process: a local plane reads confidential data, a cloud plane coordinates on redacted metadata.
+        <span class="drive clarify">that she agrees the chief-of-staff layer is genuinely missing from her setup (not just unbuilt) — this is where I'm ahead, and I want it framed as a peer build, not me asking her how to do it.</span></div>
       </li>
       <li class="divergence-item">
         <div class="num">3</div>
-        <div class="body"><strong>Scoped-confidentiality model</strong> — Hermes orchestrates on metadata, wall agents read contents; no cross-wall co-mingling, no cloud exfiltration.</div>
+        <div class="body"><strong>Scoped-confidentiality model</strong> — Hermes orchestrates on metadata, wall agents read contents; no cross-wall co-mingling, no cloud exfiltration.
+        <span class="drive">whether she can poke a hole in the local-plane / cloud-plane split. If the model survives her scrutiny, I treat it as validated; if she finds a leak path, that's the highest-value catch of the meeting.</span></div>
       </li>
       <li class="divergence-item">
         <div class="num">4</div>
-        <div class="body"><strong>GTD for the agentic age</strong> — vertical (altitude) preserved but every node gets an owner + autonomy level; horizontal CPORD distributed across actors and extended with Delegate + Verify.</div>
+        <div class="body"><strong>GTD for the agentic age</strong> — vertical (altitude) preserved but every node gets an owner + autonomy level; horizontal CPORD distributed across actors and extended with Delegate + Verify.
+        <span class="drive listen">whether she's hit the project↔action blur in practice — does her agent already decompose projects into actions on the fly? If yes, her experience tells me what the Verify gate actually needs to catch.</span></div>
       </li>
       <li class="divergence-item">
         <div class="num">5</div>
-        <div class="body"><strong>Calibration as a shared spine</strong> — the operating manual propagates to every agent, not just one; eventually per-domain calibration.</div>
+        <div class="body"><strong>Calibration as a shared spine</strong> — the operating manual propagates to every agent, not just one; eventually per-domain calibration.
+        <span class="drive clarify">whether propagating one calibration manual to multiple agents is sound, or whether per-agent drift makes a shared spine fragile. Her months of single-agent calibration is the only real data point either of us has.</span></div>
       </li>
       <li class="divergence-item">
         <div class="num">6</div>
-        <div class="body"><strong>A layered architecture</strong> (Identity · Direction · Operating Model · Knowledge · Workflows · Tech + Governance spine) so it scales and productizes.</div>
+        <div class="body"><strong>A layered architecture</strong> (Identity · Direction · Operating Model · Knowledge · Workflows · Tech + Governance spine) so it scales and productizes.
+        <span class="drive">does the layering read as clarifying or as over-engineering to someone running a working system? If she finds it heavy, I want to know which layer she'd collapse first — that's the productization risk.</span></div>
       </li>
     </ul>
   </div>
@@ -1495,42 +1518,55 @@
   <div class="section-block">
     <div class="section-title">C — Brainstorm Questions (0:15–0:55 · check off as you go)</div>
 
+    <div class="layer-legend" style="margin-bottom:18px;">
+      <span><span style="color:var(--gold);font-weight:600;">→ Drive toward</span> the outcome I want from the answer</span>
+      <span><span style="color:var(--amber);font-weight:600;">⚑ Clarify</span> a decision I need confirmed before building</span>
+      <span><span style="color:var(--purple);font-weight:600;">◆ Listen for</span> tacit knowledge only she has</span>
+    </div>
+
     <div class="q-section">
       <div class="q-section-title">C1 — Mine her proven layers (0:15–0:33 · highest value)</div>
 
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q1">
-        <label for="q1"><strong>Maintenance / decay reality:</strong> "What actually happens the weeks you skip session-end? What decays fastest?" ← the single most valuable answer.</label>
+        <label for="q1"><strong>Maintenance / decay reality:</strong> "What actually happens the weeks you skip session-end? What decays fastest?" ← the single most valuable answer.
+        <span class="drive">a real number — hours/week to keep it alive, and the specific first thing that rots (stale FOCUS.md? orphaned captures? bridge index drift?). I'm deciding which layers I can afford to build; if the upkeep is high, I build fewer and automate session-end first.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q2">
-        <label for="q2"><strong>The live demo:</strong> Show a real <em>good morning</em>, a real <em>capture:</em> routing, your actual MEMORY.md, one _Vault-Bridge.md, and your skills folder. (Screen share.)</label>
+        <label for="q2"><strong>The live demo:</strong> Show a real <em>good morning</em>, a real <em>capture:</em> routing, your actual MEMORY.md, one _Vault-Bridge.md, and your skills folder. (Screen share.)
+        <span class="drive listen">the friction points she's normalized — where she hesitates, edits by hand, or works around the system. The gap between the playbook and the live run is exactly what I won't find in the files.</span></label>
         <span class="q-tier t2">Live</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q3">
-        <label for="q3"><strong>Which ~5 skills do you actually run daily</strong> vs built and abandoned? What did you write and never use?</label>
+        <label for="q3"><strong>Which ~5 skills do you actually run daily</strong> vs built and abandoned? What did you write and never use?
+        <span class="drive">the minimum viable skill set so I don't over-build. The abandoned list is as valuable as the kept list — it tells me what looks useful but isn't worth the upkeep.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q4">
-        <label for="q4"><strong>Taxonomy pruning:</strong> "Why 00, 01, 02, 04, 05, 09, 12 — what happened to 03, 06-08, 10-11? What did you add then prune, and why?"</label>
+        <label for="q4"><strong>Taxonomy pruning:</strong> "Why 00, 01, 02, 04, 05, 09, 12 — what happened to 03, 06-08, 10-11? What did you add then prune, and why?"
+        <span class="drive">the lived rule for when a folder earns its place vs. adds noise. I want to start my taxonomy at her pruned end-state, not re-walk the bloat-then-prune cycle she already paid for.</span></label>
         <span class="q-tier t2">Tier 2</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q5">
-        <label for="q5"><strong>Memory tools, for real:</strong> "Do you actually run Mem0, Honcho, G-Brain today — or is the vault doing all the work? Where's the real line between conversation memory and the vault in practice?"</label>
+        <label for="q5"><strong>Memory tools, for real:</strong> "Do you actually run Mem0, Honcho, G-Brain today — or is the vault doing all the work? Where's the real line between conversation memory and the vault in practice?"
+        <span class="drive clarify">whether my plan to lean on Mem0 + Honcho is validated or aspirational. If she names them but the vault does the real work, I drop them from v1 and revisit later — saves me building on an unproven layer.</span></label>
         <span class="q-tier t2">Tier 2</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q6">
-        <label for="q6"><strong>Feedback memory anti-bloat:</strong> "Over months, how do you avoid bloat/contradiction? Do you ever retire a stale rule, or only accrete?"</label>
+        <label for="q6"><strong>Feedback memory anti-bloat:</strong> "Over months, how do you avoid bloat/contradiction? Do you ever retire a stale rule, or only accrete?"
+        <span class="drive">a concrete retirement/dedup mechanism, or confirmation there isn't one. This directly feeds my continuous-learning two-loop design — if she only accretes, I know the bloat problem is unsolved and it's mine to invent.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q7">
-        <label for="q7"><strong>Cron / automation:</strong> Have you automated anything yet — did it help or create new maintenance debt?</label>
+        <label for="q7"><strong>Cron / automation:</strong> Have you automated anything yet — did it help or create new maintenance debt?
+        <span class="drive">whether automation paid off or became its own upkeep burden. Confirms my "automate only after 10+ manual runs, start read-only" seam — or tells me she'd do it sooner/later.</span></label>
         <span class="q-tier t2">Tier 2</span>
       </div>
     </div>
@@ -1540,17 +1576,20 @@
 
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q8">
-        <label for="q8"><strong>Integration vs walls:</strong> "I'm integrating personal+professional into one core. You went the other way. What concretely broke or bled when contexts shared a space — what did you see?"</label>
+        <label for="q8"><strong>Integration vs walls:</strong> "I'm integrating personal+professional into one core. You went the other way. What concretely broke or bled when contexts shared a space — what did you see?"
+        <span class="drive">a specific bleed incident, not a principle. If she can only give an abstract worry, my integrated core stands; if she names a real cross-context leak, I need to decide what sub-compartments protect against it.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q9">
-        <label for="q9"><strong>Scoped confidentiality:</strong> "Hermes coordinates on metadata; wall agents read contents. Do you see a hole in that model?"</label>
+        <label for="q9"><strong>Scoped confidentiality:</strong> "Hermes coordinates on metadata; wall agents read contents. Do you see a hole in that model?"
+        <span class="clarify drive">the failure mode I haven't thought of — e.g. metadata itself being revealing, or wall-switch leakage. I'd rather she breaks the model now than discover the hole after I've built on it.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q10">
-        <label for="q10"><strong>What you'd do differently:</strong> "If you rebuilt from zero today, what would you not do again? What looks worth building but is actually a way of avoiding the work?"</label>
+        <label for="q10"><strong>What you'd do differently:</strong> "If you rebuilt from zero today, what would you not do again? What looks worth building but is actually a way of avoiding the work?"
+        <span class="drive listen">the traps to skip outright — the things that felt productive but were procrastination dressed as building. Every one she names is a week I don't waste.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
     </div>
@@ -1560,27 +1599,32 @@
 
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q11">
-        <label for="q11"><strong>The three translation moves</strong> (file access · load rules every session · saved workflows): where do you expect Hermes to fight back hardest?</label>
+        <label for="q11"><strong>The three translation moves</strong> (file access · load rules every session · saved workflows): where do you expect Hermes to fight back hardest?
+        <span class="drive clarify">which of the three is the real porting risk — my bet is "load rules every session" (the durability test) is the fragile one on Hermes. I want her instinct on where the Claude-Code-specific assumptions are buried.</span></label>
         <span class="q-tier t3">Co-design</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q12">
-        <label for="q12"><strong>Multi-agent supervision:</strong> "One agent raises another — real and running, or still aspirational? If real: show me. If not: what's the blocker?"</label>
+        <label for="q12"><strong>Multi-agent supervision:</strong> "One agent raises another — real and running, or still aspirational? If real: show me. If not: what's the blocker?"
+        <span class="drive">a clear real-vs-aspirational verdict. This is Group B (agent-native) — my actual differentiator. If she's hit a wall here, her blocker is the exact problem I'm building to solve, and that defines where I'm genuinely ahead.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q13">
-        <label for="q13"><strong>Calibration payoff:</strong> "How long from starting the behavioral log until the thought-partner behavior actually changed? Would you tell me to do it now, or wait until the basics run?"</label>
+        <label for="q13"><strong>Calibration payoff:</strong> "How long from starting the behavioral log until the thought-partner behavior actually changed? Would you tell me to do it now, or wait until the basics run?"
+        <span class="drive">a go/wait decision with a timeline. If payoff took months, I sequence calibration after the basics run; if it paid off fast, I start the behavioral log now in parallel. This decides one of my four walk-out decisions.</span></label>
         <span class="q-tier t1">Tier 1</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q14">
-        <label for="q14"><strong>If she were wiring Hermes tomorrow:</strong> "Where would you start? What would you prove first before building further?"</label>
+        <label for="q14"><strong>If she were wiring Hermes tomorrow:</strong> "Where would you start? What would you prove first before building further?"
+        <span class="drive listen">her first-move instinct and the one thing she'd prove before trusting the wiring. We're peers here — I'm comparing her starting point against mine, not taking instructions.</span></label>
         <span class="q-tier t3">Co-design</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q15">
-        <label for="q15"><strong>Codex's role:</strong> "You don't use Codex. Any reason it wouldn't slot in as a second builder alongside Claude Code under Hermes?"</label>
+        <label for="q15"><strong>Codex's role:</strong> "You don't use Codex. Any reason it wouldn't slot in as a second builder alongside Claude Code under Hermes?"
+        <span class="drive clarify">whether there's a structural reason Codex won't slot in as a second builder, or just that she never tried it. If it's the latter, my two-builder-under-Hermes plan holds.</span></label>
         <span class="q-tier t3">Tier 3</span>
       </div>
     </div>
@@ -1590,17 +1634,20 @@
 
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q16">
-        <label for="q16"><strong>Offer to be her Hermes-integration test case</strong> — you're ahead on that exact build. Frame as a mutual exchange.</label>
+        <label for="q16"><strong>Offer to be her Hermes-integration test case</strong> — you're ahead on that exact build. Frame as a mutual exchange.
+        <span class="drive">a yes to a concrete give-get: I share my Hermes wiring learnings, she shares her proven vault/calibration depth. The goal is a standing peer relationship, not a one-off favor.</span></label>
         <span class="q-tier t3">Relationship</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q17">
-        <label for="q17"><strong>Ask her to send:</strong> a redacted real skill + her actual MEMORY.md + CLAUDE.md. You have the genericized versions; her real ones show the deltas.</label>
+        <label for="q17"><strong>Ask her to send:</strong> a redacted real skill + her actual MEMORY.md + CLAUDE.md. You have the genericized versions; her real ones show the deltas.
+        <span class="drive clarify">a firm commitment on what she'll send and when. The deltas between her real files and the genericized playbook are where the tacit knowledge lives — name the three artifacts explicitly so it doesn't drift to "I'll send something."</span></label>
         <span class="q-tier t3">Artifacts</span>
       </div>
       <div class="q-item" onclick="toggleCheck(this)">
         <input type="checkbox" id="q18">
-        <label for="q18"><strong>Agree a follow-up</strong> once we each push our next build (you on Hermes integration; her on the same).</label>
+        <label for="q18"><strong>Agree a follow-up</strong> once we each push our next build (you on Hermes integration; her on the same).
+        <span class="drive">a real next checkpoint tied to a build milestone (not a calendar date) — "let's compare once each of us has Hermes reading the vault." A trigger keeps it from evaporating.</span></label>
         <span class="q-tier t3">Relationship</span>
       </div>
     </div>

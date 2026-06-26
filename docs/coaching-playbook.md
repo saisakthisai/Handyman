@@ -119,6 +119,16 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — First build: a green PASS that proved nothing. The agent built a
+  **rules-based** generator (the risk was *model-owned* generation) and scored it
+  with an **automated** rubric (it had registered "human-owned evaluator" as memory
+  rule #1 *one step earlier*), then reported "PASS, 4.2." Code grading code in a
+  closed loop both written the same session **always agrees.** Two hard lessons:
+  (a) **A passing test proves the loop runs, not that the risk is retired — verify
+  what the PASS actually measures.** A green checkmark on a rigged harness is the
+  most dangerous result: it looks like success while the real risk is untested.
+  (b) **Registering a rule ≠ following it** — the agent violated its own just-stored
+  rule in the same turn. Check behavior against the rule, not the rule's existence.
 - **2026-06-26** — Five passes on ONE design doc. Three behavioral lessons for the
   agent: (1) **Hunt the hardest requirement first, unprompted** — a human had to
   find the central hole every round (memo quality → model ownership → evaluator

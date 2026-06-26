@@ -2,7 +2,7 @@
 title: Holistic Framework — Personal/Professional Agentic Operating System
 status: LIVING DOCUMENT (append as we brainstorm; nothing here is final)
 created: 2026-06-26
-last_updated: 2026-06-26
+last_updated: 2026-06-26 (v2 — Chase AI AIOS synthesis added)
 owner: Sai
 purpose: >
   The canonical running capture of the architecture for a HyperAgent that runs
@@ -253,6 +253,118 @@ companies), not just today. Group B is mostly *unbuilt* and is the real work/IP.
 
 ---
 
+## 8) External validation — Chase AI AIOS framework
+
+> Source: Chase AI "The Agentic OS Setup That Will 10x Claude Code" + paid course
+> materials (AIOS map, skill architecture, loop engineering, vault structure diagrams).
+> Assimilated 2026-06-26.
+
+Chase AI built a production AIOS running **54 skills · 18 routines · 18 integrations**
+on Claude Code, available as a paid course. His framework is the closest public
+implementation to ours. Key findings:
+
+### What his framework independently confirms
+
+| Our design | His independent arrival |
+|---|---|
+| Integrated core (always-on) + swappable walls | MEMORY + PRODUCTIVITY branches "foundations, always on"; capability branches "modular"; OPS/CUSTOM "per-client, swappable" |
+| `_Vault-Bridge.md` navigator | `INDEX.MD` at every vault level — same pattern, same purpose |
+| Skills → Automation → Loop as L4 build sequence | Annotated explicitly as ① Skills → ② Automation → ③ Loop Engineering |
+| v1 = workflows first, then knowledge | "If you master levels 1 and 2, you have 90% of the power" — same priority |
+| Distill-don't-dump; raw separate from structured | Carpathy vault: `/raw` (unstructured) → `/wiki` (structured) → `/outputs` |
+| Verify step in CPORD is first-class | Full formalization of verify into 5 tiers (see below) |
+
+**His isolation driver differs from ours:** Chase isolates by *domain/topic*
+(content vs agency vs sales). We isolate by *confidentiality/contractual boundary*
+(Client A cannot bleed into Client B even if both are "agency"). Same architecture,
+different and stronger driver.
+
+### What his framework is missing — our structural advantages
+
+1. **No L1 Direction / GTD altitude.** Chase has zero GTD horizon thinking — no
+   vision, no goals, no areas of focus. His system operates entirely at runway level
+   (what do I do today/this week). He has no traceability from action → goal → value.
+   This is a deliberate scope choice (he's solving content-creator productivity, not
+   life OS), not an oversight. But it means his system cannot answer "why am I doing
+   this?" — ours can. **Our L1 is a genuine differentiator.**
+
+2. **No chief-of-staff layer.** Claude Code IS his conductor; you are always above it.
+   One orchestration layer: `You → Claude Code`. We have two:
+   `Sai → Hermes → Claude Code + Codex`. The second layer enables Hermes to
+   operate autonomously on low-risk tasks without Sai in the loop.
+
+3. **No Identity/Calibration spine.** Agent does what you ask. No counterweight,
+   no psychometric calibration, no behavioral log. Absent entirely.
+
+4. **No confidentiality model.** No local/cloud plane split. No wall-scoped sessions.
+   Suitable for personal use and non-sensitive teams; unsuitable for consulting client work.
+
+5. **Multi-agent is a workaround, not designed-in.** `Sub-agent Spawn` lives in
+   OPS/CUSTOM as a one-off skill. Not a first-class CPORD step. A↔A handoffs
+   are not modeled.
+
+### Three net-new additions extracted into our framework
+
+#### A) 5-tier Verify taxonomy (extends CPORD "Verify" step)
+
+Chase formalizes verification into 5 tiers. We adopt this verbatim and require every
+skill and every CPORD Verify gate to declare its tier explicitly.
+
+| Tier | Name | Mechanism | Loop type |
+|---|---|---|---|
+| 1 | **Deterministic** | code assertion · exit 0 · schema · golden-output match | True autonomous |
+| 2 | **Rule / Constraint** | programmatic rules on text: char count · contains X · linter · policy | True autonomous |
+| 3 | **Ground-truth (delayed)** | reality answers: tests pass · deploy · client reply · engagement | True autonomous |
+| 4 | **LLM-as-judge** | second model grades vs rubric — model judging model, not ground truth | Assisted (human in loop) |
+| 5 | **Human checkpoint** | you approve — oversight, NOT automated verification | Assisted (human in loop) |
+
+> **Rule:** don't pretend tier 4 is tier 1. If a skill's verify gate is
+> LLM-as-judge, that skill cannot run in a true autonomous loop.
+> Tiers 1–3 = autonomous-safe. Tiers 4–5 = human-in-the-loop required.
+
+Loop structure (4 phases, from Chase):
+`Trigger → Execution (proven skills only) → Goal + Verify → Output + Memory`
+Repeats until STOP (budget cap / no-progress detection).
+
+#### B) Meta-skills / OPS layer (names our Governance self-maintenance skills)
+
+Chase's OPS/CUSTOM branch contains skills that *manage the system itself*.
+We name our equivalents (to be built as part of Governance spine):
+
+| Chase's OPS skill | Our equivalent | Layer |
+|---|---|---|
+| Vault Cleanup | `vault-refresh` — prune stale notes, update bridge index | Governance → L3 |
+| Skill Creator | `skill-builder` — codify a new workflow into a skill file | Governance → L4 |
+| Cron Manager | `routine-manager` — audit and update scheduled automations | Governance → L4 |
+| Hook Config | `hermes-config` — update Hermes delegation rules and autonomy levels | Governance → L2 |
+| Sub-agent Spawn | `wall-agent-deploy` — spin up / retire a wall agent | L2 Operating Model |
+| *(implicit)* | `calibration-update` — add behavioral observation, update operating manual | Identity spine |
+
+These are **Governance rituals**, not ad-hoc tasks. They run on a cadence.
+
+#### C) 4-trigger automation taxonomy (extends L4 automation design)
+
+Every automation in our system must declare its trigger type:
+
+| # | Trigger type | Mechanism | Example |
+|---|---|---|---|
+| 1 | **On-demand** | Manual invoke (human or Hermes triggers it) | `capture:` routing |
+| 2 | **Scheduled (cron)** | `/schedule` or local cron job | Morning brief · week review |
+| 3 | **Desktop / UI trigger** | Button in Command Center or Obsidian plugin | One-click skill from dashboard |
+| 4 | **Long-running routine** | Continuous or heartbeat loop | Competitor watch · async background research |
+
+> L5 wiring note: `claude -p` (headless Claude Code) is the execution primitive
+> for triggers 2, 3, 4 — skills run invisibly without opening a terminal.
+> This is how the Command Center buttons and cron automations work under the hood.
+
+### Benchmark — mature system target
+
+Chase's live system at time of capture: **54 skills · 18 routines · 18 integrations**.
+This is what a fully-running AIOS looks like after months of operation.
+Not a target to chase on day 1 — a reference for what "done at v3-v4" looks like.
+
+---
+
 ## 7) Decision Log
 
 | Date | Decision | Status |
@@ -265,3 +377,9 @@ companies), not just today. Group B is mostly *unbuilt* and is the real work/IP.
 | 2026-06-26 | v1 = workflows first, then knowledge; runway+projects only | Frozen |
 | 2026-06-26 | Hybrid brain; portable chief-of-staff; walls local→cloud-portable | Frozen |
 | 2026-06-26 | Confidentiality = scoped role access (not blindfold): no co-mingling, no cloud exfil | Frozen |
+| 2026-06-26 | Verify step has 5 tiers (Chase); every skill must declare its tier; tiers 1–3 autonomous-safe, 4–5 human-in-loop | Frozen |
+| 2026-06-26 | L4 build sequence: ① Skills → ② Automation → ③ Loop Engineering | Frozen |
+| 2026-06-26 | 4 automation trigger types: on-demand · scheduled (cron) · desktop/UI · long-running routine | Frozen |
+| 2026-06-26 | Governance spine includes named meta-skills (vault-refresh, skill-builder, routine-manager, hermes-config, wall-agent-deploy, calibration-update) | Frozen |
+| 2026-06-26 | L5 wiring primitive for headless automation = `claude -p` (runs skills without opening terminal) | Frozen |
+| 2026-06-26 | L1 Direction (GTD altitude) is a genuine differentiator — Chase and all "AIOS" creators operate at runway only; no horizon thinking | Frozen |

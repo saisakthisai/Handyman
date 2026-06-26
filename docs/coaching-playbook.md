@@ -13,8 +13,12 @@ _Last updated: 2026-06-26_
 
 1. **Risk-first, not feature-first.** Build the cheapest thing that tests the
    one assumption that kills the idea if false — *before* any product.
-2. **Set the bar before building.** Explicit success criteria + a pre-registered
-   pass/fail number, decided up front so results can't be rationalized after.
+2. **Set the bar before building — then scrutinize the bar.** Explicit success
+   criteria + a pre-registered pass/fail number, decided up front. **But the ruler
+   matters more than the score:** a self-set bar shaped to pass makes any rating
+   worthless, and criteria that test *structure* ("has the right sections") instead
+   of *correctness* ("will it actually work") inflate. The coach's first job is to
+   audit the criteria, not the number. Rate the ruler before the work.
 3. **Behavior beats words.** Measure what people *do* (deposit / pre-pay /
    signed pilot), not what they *say* ("I'd pay").
 4. **Self-rate against the brief.** "Did I follow the brief" is a mandatory
@@ -74,6 +78,11 @@ _Last updated: 2026-06-26_
   straight.
 - **Watch the rubric, not just the score.** A self-rating against a flattering
   rubric is theater.
+- **Audit the ruler — including your own.** The agent set its own success criteria
+  and graded against them; the coach must scrutinize whether those criteria are
+  valid (test correctness, not just structure) and independent (not shaped to
+  pass). Missing this means coaching the score while the bar quietly lies. (Caught
+  by the user coaching the coach — 2026-06-26.)
 
 ---
 

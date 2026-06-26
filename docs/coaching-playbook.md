@@ -32,11 +32,16 @@ _Last updated: 2026-06-26_
 > scoped, pruned principle and apply it unprompted next time.**
 >
 > **★ Keystone (the master skill):** *define explicit success criteria, then
-> self-rate each iteration against them until the output clears the bar.* This is
-> what makes every other principle self-correcting — an agent that does it catches
-> its own gaps. Status so far: skill present, but still **conditional** (it grades
-> itself when we set the bar or ask, not yet unprompted). True test: next project,
-> does it define criteria and self-rate without being told?
+> self-rate each iteration against them, improving until the output clears the bar
+> (~90%) over 2–3 passes.* This is what makes every other principle self-correcting.
+> **Tested live this session (not deferred):** the agent memorized **half** of it —
+> it now self-rates *honestly* (rated the build plan 8.8 and owned that it had
+> skipped the step), but it does **not iterate to threshold** — it scores once and
+> stops, even after listing the gaps that would raise the score. **Confirmed by the
+> agent itself:** the stored rule was *too vague* ("iterate until it's good"), not
+> operational ("2–3 passes toward ~90%"). It re-stored the sharp version. **Meta-
+> lesson: a vague principle doesn't fire — store rules operationally, with a number
+> and a stop condition, or the behavior won't trigger.**
 
 ---
 
@@ -88,6 +93,10 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Keystone tested live (not deferred). Agent self-rated honestly
+  but skipped the iterate-to-threshold loop. Root cause found *by the agent*: its
+  memory held a vague version of the rule. New meta-lesson logged: **vague
+  principles don't fire — store them operationally (number + stop condition).**
 - **2026-06-26** — Build phase opened. Agent **passed the generalization exam**:
   unprompted, it chose phase-appropriate skills, named memo quality as the risk,
   and designed an operator-review step to manage it. Open gap → define the

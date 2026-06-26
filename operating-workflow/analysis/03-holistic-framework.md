@@ -113,6 +113,29 @@ walls. Walls spin up / retire; the core is permanent.
 **Divergence from Renuka:** she walls companies but has **no integrated personal
 core**. Sai integrates *life*, walls *clients/companies*.
 
+### Confidentiality model — "Hermes the role, graduated scoped access"
+The wall is a **scoping boundary on one role, not a blindfold.** A blind chief of
+staff is useless; the two *real* risks are narrower than "Hermes sees data":
+1. **Cross-wall co-mingling** (Client A bleeding into Client B).
+2. **Cloud exfiltration** (confidential data leaving local).
+
+Both solved by scoping, not ignorance:
+- **Hermes always carries its model of *Sai*** (needs, standards, judgment) across
+  all walls — that is the chief-of-staff value and is not client data.
+- **Client raw data:** accessible to Hermes only in a **wall-scoped, ephemeral
+  session** — dropped on wall-switch, **never written to cross-wall memory.**
+- **Cloud/local split:** "Hermes" is a **role, not one process.** A **local Hermes
+  plane** reads raw confidential data; the **cloud plane** coordinates across walls
+  on **redacted abstractions + metadata** the local plane produces. Raw data never
+  hits the cloud.
+- **Supervision:** Hermes judges the local agent's **work products against Sai's
+  standards** (which it holds) inside the wall session — "right" is defined by its
+  model of Sai, not by client data.
+- **Sub-compartments:** sensitive items can be gated even inside a wall (need-to-know).
+
+Net: effective (full model of Sai + scoped client access + real supervision) **and**
+confidential (no co-mingling, no cloud leak).
+
 ---
 
 ## 4) Design seams (locked — must not be hard-coded away)
@@ -179,3 +202,4 @@ companies), not just today. Group B is mostly *unbuilt* and is the real work/IP.
 | 2026-06-26 | Horizontal CPORD distributed across actors + Delegate/Verify | Frozen |
 | 2026-06-26 | v1 = workflows first, then knowledge; runway+projects only | Frozen |
 | 2026-06-26 | Hybrid brain; portable chief-of-staff; walls local→cloud-portable | Frozen |
+| 2026-06-26 | Confidentiality = scoped role access (not blindfold): no co-mingling, no cloud exfil | Frozen |

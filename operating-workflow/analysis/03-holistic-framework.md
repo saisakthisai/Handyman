@@ -128,6 +128,32 @@ she ever **retire** a stale/wrong rule, or only accrete?
 
 ---
 
+## 2c) Identity & Calibration (the counterweight layer)
+
+The layer that makes the agent a *counterweight*, not a yes-man. From Renuka's
+deepest IP; the method copies, the contents never do.
+
+**Method — fuse two streams:**
+- **Stream A (top-down):** raw psychometric data read *directly* (Clifton, SDI,
+  iEQ9 Enneagram, Big Five) → extract unflattering structural findings.
+- **Stream B (bottom-up):** one behavioral observation per session (failures +
+  validated wins).
+- **Fusion:** assessment *predicts* a failure mode; log *confirms* it; rule fires
+  with a *trigger*. Three-part rule = **rule + why (finding) + how-to-apply (trigger+action)**.
+
+PICK (method only): two-stream fusion · three-part rule · counterweight-as-default ·
+read-raw-not-summarized · durability test · `strategic-lenses` + `strategic-partner`
+skills (directly copyable).
+EXTEND: inject the operating manual into **every** agent (Hermes + wall agents) —
+calibration is a **shared spine Hermes propagates** (process-learning → bleeds
+across walls). Abstract the *method* from personal contents for the consulting product.
+INVENT: calibration propagation to sub-agents · **per-domain calibration** (sharper
+in business, gentler in well-being) · the productized executive-calibration pipeline.
+PROBE her: time-to-payoff (start now or after basics?) · specific upkeep cost ·
+has it ever mis-fired, and how she corrected it.
+
+---
+
 ## 3) The wall map (BDA isolation decision)
 
 Isolation is driven by **confidentiality / who-can-see-it, NOT by topic.**

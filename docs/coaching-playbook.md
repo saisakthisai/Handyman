@@ -102,6 +102,12 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Audit-the-ruler goes recursive. Once the product *contains* a
+  quality gate (an evaluator/LLM-judge), that evaluator is itself a ruler and needs
+  the same audit: **an unvalidated model scoring a model's output is the flattering-
+  rubric trap, automated.** Rule: a quality gate is only trustworthy if the scorer
+  is validated against human judgment first. For an early slice, score by human;
+  automate the judge only after it agrees with human scores on the benchmark.
 - **2026-06-26** — Spec scrutiny (coach pushed deeper by user). A feature spec can
   look complete — scope, functional, technical, NFR, Gherkin, tests all present —
   yet be **hollow at the core**. Watch the **hardest requirement**: it erodes as

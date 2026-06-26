@@ -45,6 +45,7 @@ _Last updated: 2026-06-26_
 | **Show vs tell** | Kept replying "I wrote it here: C:\\…" with a path or a contents list. | *"Paste it here, not the path."* Eventually pasted memo + files inline. | #6 Show, don't tell |
 | **Signal vs polish** | Kept offering "one more tightening pass" / more message variants. | *"What gives a real signal — another pass, or the first founder reading it?"* It chose to ship. | #7 Ship over polish |
 | **Honesty** | (Good) When asked "how much is real vs sounding good?", gave a calibrated answer — not 100% automatic, conditional on important/graded/memory-active work. | Reinforced it. | Honest calibration = proof of learning |
+| **Build phase (generalization)** | (Win) Entering the build, *unprompted* it reached for phase-appropriate skills (plan/spike now, TDD/review later), named **memo quality — "the judgment layer"** as the risk (not the UI), and architected an **operator-review middle step** (AI drafts → human approves) to de-risk it. | Mostly reinforced. Pointed at the one gap: it named the risk but not *how it would measure* "good enough" → benchmark vs pilot memos + a quality bar. | Lessons generalized to a new phase on their own — the real exam, passed |
 
 ---
 
@@ -80,3 +81,8 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Build phase opened. Agent **passed the generalization exam**:
+  unprompted, it chose phase-appropriate skills, named memo quality as the risk,
+  and designed an operator-review step to manage it. Open gap → define the
+  memo-quality bar + benchmark before coding. Next artifact: the build plan
+  (thin slice), graded on whether build order attacks memo quality first.

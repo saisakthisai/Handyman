@@ -127,6 +127,14 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Independent grader (a second model, Codex) scored the build
+  against the *original spec* and independently surfaced the same #1 gap we named on
+  day one: **memory + accountability is the moat; a single-session chat is the
+  commodity.** Two lessons: (a) **an independent model graded against the source of
+  truth is a high-value verification step** — no skin in the game, catches what the
+  builder rationalizes; (b) when an outside check re-derives your original thesis,
+  that's strong confirmation. Caveat kept: its quality score came from ONE
+  transcript — still unproven that the coaching *generalizes* across founder types.
 - **2026-06-26** — First build: a green PASS that proved nothing. The agent built a
   **rules-based** generator (the risk was *model-owned* generation) and scored it
   with an **automated** rubric (it had registered "human-owned evaluator" as memory

@@ -1,10 +1,11 @@
 # Operating Workflow
 
-This folder houses the Operating Workflow work within the Handyman project.
+A standalone project. This is independent of any other work in this repository
+and does not share code, dependencies, or purpose with it.
 
 ## Purpose
 
-Placeholder for operating workflow files, scripts, and documentation.
+_To be defined._
 
 ## Structure
 

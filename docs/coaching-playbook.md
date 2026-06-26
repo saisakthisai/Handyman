@@ -102,6 +102,15 @@ you reproduce the behavior without re-coaching from scratch. The real exam is th
   concierge run-kit). Entering build phase (real product). New watch item:
   when automating, the risk shifts from "will they pay" (validated) to **"can
   the AI match the human-written pilot memos?"** — benchmark slice 1 against them.
+- **2026-06-26** — Spec scrutiny (coach pushed deeper by user). A feature spec can
+  look complete — scope, functional, technical, NFR, Gherkin, tests all present —
+  yet be **hollow at the core**. Watch the **hardest requirement**: it erodes as
+  the doc grows. Seen twice: "would pay" softened to verbal intent; "model-backed
+  memo quality" softened to *optional* + dropped from the acceptance criteria.
+  **Checks:** (a) does the hardest requirement survive into the *acceptance
+  criteria*, not just a headline? (b) are NFRs *numbers*, not adjectives? (c) does
+  the data model store what the quality gate needs? (d) is the central bet still
+  non-negotiable, or did elaboration hedge it away?
 - **2026-06-26** — Keystone tested live (not deferred). Agent self-rated honestly
   but skipped the iterate-to-threshold loop. Root cause found *by the agent*: its
   memory held a vague version of the rule. New meta-lesson logged: **vague

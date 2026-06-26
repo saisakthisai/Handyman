@@ -2,7 +2,7 @@
 title: Holistic Framework — Personal/Professional Agentic Operating System
 status: LIVING DOCUMENT (append as we brainstorm; nothing here is final)
 created: 2026-06-26
-last_updated: 2026-06-26 (v2 — Chase AI AIOS synthesis added)
+last_updated: 2026-06-26 (v3 — Tier 1 frameworks reframed for agents)
 owner: Sai
 purpose: >
   The canonical running capture of the architecture for a HyperAgent that runs
@@ -365,6 +365,166 @@ Not a target to chase on day 1 — a reference for what "done at v3-v4" looks li
 
 ---
 
+## 9) Tier 1 frameworks — reframed for agents
+
+> These frameworks were designed for humans. Before adding them to our architecture,
+> each was rethought from first principles: what stays, what fundamentally changes,
+> and what layer it furnishes. The reframe is the IP — not the original framework.
+
+**Meta-pattern across all five:** every framework transforms along the same axes:
+
+| Human version | Agent version |
+|---|---|
+| Planning artifact (built once) | Runtime machinery (read on every task) |
+| Intuition fills the gaps | Everything explicit — every decision criterion, every state |
+| Periodic cycles (weekly, quarterly) | Continuous — real-time tracking, deviation surfaced immediately |
+| Social accountability | Logged accountability — audit trail feeds the process loop |
+| Single actor or human team | Multi-actor: Sai · Hermes · builders · wall agents — role at every step |
+
+**The seam that must be designed explicitly:** some parts of each framework stay
+human (setting Objectives, classifying novel Cynefin situations, building RACI
+for new projects). Other parts move to agents (tracking KRs, routing by Cynefin
+on known tasks, executing RACI assignments, managing Kanban state). The handoff
+between those two is the design work.
+
+---
+
+### 9a) OKRs → furnishes L1 Direction
+
+**Key reframe:** from a *periodic self-reporting scorecard* to an *always-on
+routing and prioritization signal* Hermes reads on every task decision.
+
+What stays: O + KR structure, 0–1.0 scoring, stretch-goal philosophy, quarterly
+planning cadence.
+
+What changes for agents:
+- **Measurement shifts from self-reported to auto-tracked.** KRs that are
+  observable events (client signed, content published) are tracked by Hermes
+  in real-time. The honesty problem disappears; the instrumentation problem replaces it.
+- **Becomes a live prioritization engine.** Hermes reads active KRs on every
+  task: "KR2 is at 0.1, KR1 is at 0.9 — route this request toward KR2 activities."
+  Not a quarterly scorecard — a per-task routing signal.
+- **The Objective becomes loaded context.** Hermes carries the active Objective
+  into every session. It shapes how ambiguous requests are interpreted.
+- **Ownership must be distributed.** Human OKRs have one owner. In our system:
+  Sai is Accountable; Hermes is Responsible for tracking; wall agents are
+  Responsible for execution. OKR ownership maps to RACI roles.
+- **Hermes proposes draft OKRs.** Based on pattern of recent work and knowledge
+  base, Hermes drafts KR candidates. Sai reviews and approves. OKR-setting shifts
+  from blank-page to approval exercise.
+
+---
+
+### 9b) Cynefin → furnishes L2 Operating Model + Governance ("define low-risk")
+
+**Key reframe:** from a *human sense-making exercise* to a *runtime autonomy
+classifier* — the decision gate Hermes applies to determine whether to act,
+propose, consult, or escalate.
+
+What stays: the four domains and their response patterns. The insight that
+different situations require genuinely different decision modes.
+
+What changes for agents:
+- **From sense-making to decision gate.** Classification must be fast and
+  rule-based, not deliberative. Hermes classifies before acting on every task.
+- **Classification needs explicit signals** (humans use intuition; agents need rules):
+  - *Simple* — proven skill exists, outcome predictable, verify tier 1–2 → **act**
+  - *Complicated* — novel for this domain but a known pattern applies → **propose**
+  - *Complex* — no precedent, uncertain outcome, multiple stakeholders → **consult Sai**
+  - *Chaotic* — something broke, time pressure, no clear rule → **escalate immediately**
+  - *Disorder* (center, unclassifiable) → **escalate to Sai by default. Never act when classification is unclear.**
+- **Classification improves over time.** Complex first time → Complicated after
+  one precedent → Simple after ten. Each classification is a process-loop learning event.
+- **Directly closes the "define low-risk" open question:** Simple domain +
+  recoverable consequence = low-risk = autonomous action. Everything else = propose or escalate.
+
+---
+
+### 9c) OODA Loop → furnishes L4 agent execution (tactical, inside CPORD steps)
+
+**Key reframe:** from a *competitive speed tool* to the *internal execution loop
+every agent runs inside each CPORD step*, with Orient as the design problem and
+memory-write as the mandatory close of each cycle.
+
+What stays: the four phases (Observe → Orient → Decide → Act), the importance
+of loop speed, the centrality of Orient.
+
+What changes for agents:
+- **The bottleneck inverts.** Human bottleneck = Decide (cognitive overload).
+  Agent bottleneck = Orient (loading right context, calibrating against operating
+  manual, accessing right vault state). Agents decide and act instantly — they
+  struggle to orient correctly.
+- **Orient = our existing work.** The bridge index, CLAUDE.md, calibration manual,
+  and active FOCUS.md ARE the agent's orientation layer. Orient is why those files
+  are non-negotiable, not nice-to-haves.
+- **OODA nests inside CPORD.** CPORD is the strategic workflow (minutes to hours).
+  OODA is the tactical execution loop inside each CPORD step (seconds to minutes).
+  They operate at different time scales — not alternatives, but nested.
+- **Memory write is mandatory after Act.** Agent OODA must close each loop:
+  Act → write output to memory/state → feeds next Observe. Chase's Output+Memory
+  phase is this explicit close.
+- **Speed frees Sai for Complex/Chaotic.** Agents run OODA autonomously on
+  Simple/Complicated tasks so Sai's attention is reserved for situations that
+  require human judgment.
+
+---
+
+### 9d) RACI → furnishes L2 Operating Model (ownership + autonomy encoding)
+
+**Key reframe:** from a *static organizational chart* to *per-task runtime
+metadata* Hermes reads to route, assign, and determine whether to act or seek
+approval — directly encoding the autonomy model.
+
+What stays: the four roles (Responsible, Accountable, Consulted, Informed),
+the one-Accountable-per-task rule (shared accountability = no accountability).
+
+What changes for agents:
+- **From static matrix to runtime routing rule.** Not built once and ignored —
+  read by Hermes on every task to determine how to assign and execute.
+- **New actor set.** Human RACI assumes human actors. Our cast:
+  Sai · Hermes · Claude Code · Codex · Wall agents. Every RACI assignment
+  must name which actor from this set.
+- **Directly resolves the autonomy level model:**
+  - Sai = Consulted → **propose mode** (stop, present, wait for approval)
+  - Sai = Informed → **act mode** (execute, then report)
+  - Sai = neither → **full autonomy** within the wall
+- **Consulted = CPORD Review gate.** Every Consulted entry in the RACI is a
+  handoff point in the workflow — the H↔A interaction protocol made concrete.
+- **Accountable answers two questions:** (1) who answers to Sai if output is
+  wrong? (2) who logs the failure to the process loop? These may be different actors.
+
+---
+
+### 9e) Kanban → furnishes L3/L4 work item state management
+
+**Key reframe:** from a *visual team coordination board* to a *state machine for
+work items* Hermes uses to manage concurrency, handoffs, and bottleneck visibility
+— with cross-wall state visibility but not cross-wall content visibility.
+
+What stays: pull-based flow, WIP limits, explicit task states, bottleneck visibility.
+
+What changes for agents:
+- **The visual board is a human artifact; the state machine is what agents need.**
+  Chase's Command Center = the visual board for Sai. The underlying state machine
+  = what Hermes reads. Both are needed; they serve different actors.
+- **WIP limits prevent different failures.** Human WIP limits prevent cognitive
+  overload. Agent WIP limits prevent: token budget exhaustion, conflicting parallel
+  file writes, and Hermes losing track of active tasks.
+- **Task states must be richer:**
+  `Backlog → Assigned → In-Progress → Pending-Verify → Pending-Human-Review → Done → Archived`
+  `Pending-Verify` = Chase's Goal+Verify phase. `Pending-Human-Review` = RACI
+  Consulted gate. Both are new states not present in human Kanban.
+- **Blocked is a first-class state.** Agent Blocked = "waiting for human input or
+  external API." Hermes must not spin — surface it, set a trigger, move to other tasks.
+- **Cross-wall state visibility without content visibility.** Hermes may hold:
+  "Client A wall has 3 tasks In-Progress, 1 Blocked." That is metadata — safe.
+  Hermes may NOT hold the content of those tasks. Kanban state = metadata =
+  held at Hermes level. Content = stays in the wall.
+- **Cycle time feeds the process loop.** Slow cycle times on certain skill types
+  = bottleneck signal. Feeds the Governance loop: refine the skill or adjust autonomy level.
+
+---
+
 ## 7) Decision Log
 
 | Date | Decision | Status |
@@ -383,3 +543,8 @@ Not a target to chase on day 1 — a reference for what "done at v3-v4" looks li
 | 2026-06-26 | Governance spine includes named meta-skills (vault-refresh, skill-builder, routine-manager, hermes-config, wall-agent-deploy, calibration-update) | Frozen |
 | 2026-06-26 | L5 wiring primitive for headless automation = `claude -p` (runs skills without opening terminal) | Frozen |
 | 2026-06-26 | L1 Direction (GTD altitude) is a genuine differentiator — Chase and all "AIOS" creators operate at runway only; no horizon thinking | Frozen |
+| 2026-06-26 | OKRs furnish L1 Direction; reframed as always-on routing signal, not periodic scorecard; Hermes proposes drafts, Sai approves | Frozen |
+| 2026-06-26 | Cynefin furnishes L2+Governance; reframed as runtime autonomy classifier (Simple=act, Complicated=propose, Complex=consult, Chaotic=escalate, Disorder=escalate); closes "define low-risk" open question | Frozen |
+| 2026-06-26 | OODA Loop furnishes L4 agent execution; nests inside CPORD steps; Orient = the critical design problem = our vault+calibration files; memory-write mandatory after Act | Frozen |
+| 2026-06-26 | RACI furnishes L2 Operating Model; reframed as per-task runtime routing metadata; Consulted=propose mode, Informed=act mode; directly encodes autonomy levels | Frozen |
+| 2026-06-26 | Kanban furnishes L3/L4 state management; richer states (adds Pending-Verify + Pending-Human-Review); cross-wall state visible to Hermes, content stays walled | Frozen |

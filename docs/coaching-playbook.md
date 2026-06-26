@@ -30,6 +30,13 @@ _Last updated: 2026-06-26_
 
 > The meta-skill under all of them: **turn every correction into a general,
 > scoped, pruned principle and apply it unprompted next time.**
+>
+> **★ Keystone (the master skill):** *define explicit success criteria, then
+> self-rate each iteration against them until the output clears the bar.* This is
+> what makes every other principle self-correcting — an agent that does it catches
+> its own gaps. Status so far: skill present, but still **conditional** (it grades
+> itself when we set the bar or ask, not yet unprompted). True test: next project,
+> does it define criteria and self-rate without being told?
 
 ---
 

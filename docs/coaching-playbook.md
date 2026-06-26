@@ -85,6 +85,16 @@ _Last updated: 2026-06-26_
   straight.
 - **Watch the rubric, not just the score.** A self-rating against a flattering
   rubric is theater.
+- **The coach owns the artifact sequence.** scope → high-level architecture →
+  detailed/component design → build. Don't let the agent's turn-by-turn flow set
+  the agenda (it drifted feature-spec → polish → polish while *architecture* — the
+  load-bearing layer — went untouched). Detailed specs hang OFF the architecture,
+  not before it. (Coach missed this; user caught it — 2026-06-26.)
+- **A principle applied past its phase boundary becomes a bug.** "Risk-first /
+  don't over-engineer" is a *validation*-phase rule; carrying its minimal mindset
+  into the *build* phase made architecture feel premature when it was overdue. The
+  coach committed the very error it kept catching in the agent — not noticing the
+  phase changed and adjusting. Re-check your method at every phase boundary.
 - **Audit the ruler — including your own.** The agent set its own success criteria
   and graded against them; the coach must scrutinize whether those criteria are
   valid (test correctness, not just structure) and independent (not shaped to

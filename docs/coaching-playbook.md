@@ -31,6 +31,13 @@ _Last updated: 2026-06-26_
    teaches you more is a real customer reacting.
 8. **Match method weight to risk.** Manual pilot → manual tools. Real product →
    then bring the heavy frameworks (TDD, review, orchestration).
+9. **Architect for where you're going, build for where you are.** Before code on a
+   production-intent product, pin the **one-way-door** decisions production-grade
+   (stack, data model + PII boundaries, AI isolated behind a swappable service,
+   security, module boundaries, integration contracts) and **defer the two-way-door**
+   scale machinery (scaling, caching, microservices, heavy ops) with a seam note.
+   Modular monolith with clean boundaries = ships now, extends later without a
+   teardown. Architecture is *boundaries drawn right*, not infrastructure piled up.
 
 > The meta-skill under all of them: **turn every correction into a general,
 > scoped, pruned principle and apply it unprompted next time.**

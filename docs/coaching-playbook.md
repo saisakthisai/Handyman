@@ -90,6 +90,14 @@ _Last updated: 2026-06-26_
   the agenda (it drifted feature-spec → polish → polish while *architecture* — the
   load-bearing layer — went untouched). Detailed specs hang OFF the architecture,
   not before it. (Coach missed this; user caught it — 2026-06-26.)
+- **Re-question inherited assumptions at every phase boundary — especially the
+  product's form factor.** The coach carried "memo" from the concierge pilot (where
+  a *human* wrote memos) straight into the product build without ever asking "should
+  this be a memo, a chatbot, or a voice agent?" Pilot mechanics ≠ product decisions.
+  And: **the interface is not the moat** — a bare chatbot is the commodity ("isn't
+  this just ChatGPT?"); the differentiation is the structured outcome + memory +
+  accountability underneath. Decide form factor before any UI. (User caught it —
+  third coach-miss of the session — 2026-06-26.)
 - **A principle applied past its phase boundary becomes a bug.** "Risk-first /
   don't over-engineer" is a *validation*-phase rule; carrying its minimal mindset
   into the *build* phase made architecture feel premature when it was overdue. The

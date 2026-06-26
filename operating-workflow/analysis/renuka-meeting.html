@@ -550,17 +550,19 @@
     padding-top: 8px;
     border-top: 1px dashed var(--border);
     font-size: 12px;
-    color: var(--teal);
+    color: var(--text-dim);
+    font-style: italic;
     line-height: 1.6;
   }
   .drive::before {
-    content: '→ Drive toward: ';
-    color: var(--gold);
+    content: 'What this surfaces: ';
+    color: var(--slate);
     font-weight: 600;
+    font-style: normal;
     letter-spacing: 0.02em;
   }
-  .drive.clarify::before { content: '⚑ Clarify: '; color: var(--amber); }
-  .drive.listen::before { content: '◆ Listen for: '; color: var(--purple); }
+  .drive.clarify::before { content: 'What this surfaces: '; }
+  .drive.listen::before  { content: 'What this surfaces: '; }
 
   /* ── Brainstorm Questions (checkboxes) ── */
   .q-section { margin-bottom: 28px; }
@@ -1519,9 +1521,7 @@
     <div class="section-title">C — Brainstorm Questions (0:15–0:55 · check off as you go)</div>
 
     <div class="layer-legend" style="margin-bottom:18px;">
-      <span><span style="color:var(--gold);font-weight:600;">→ Drive toward</span> the outcome I want from the answer</span>
-      <span><span style="color:var(--amber);font-weight:600;">⚑ Clarify</span> a decision I need confirmed before building</span>
-      <span><span style="color:var(--purple);font-weight:600;">◆ Listen for</span> tacit knowledge only she has</span>
+      <span><span style="color:var(--slate);font-weight:600;">What this surfaces</span> — the context or decision each question is trying to unlock</span>
     </div>
 
     <div class="q-section">
@@ -1695,6 +1695,77 @@
         <td><div class="agenda-goal">Test-case offer. Artifacts to exchange. Standing build exchange.</div></td>
       </tr>
     </table>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Tools Comparison -->
+  <div class="section-block">
+    <div class="section-title">Tools — Her Stack vs. Our Plan</div>
+
+    <div class="card" style="margin-bottom:16px; border-left: 2px solid var(--slate);">
+      <div class="card-title">Reference during the session</div>
+      Renuka's system is proven on Claude Code; the Hermes wiring is her next build — meaning we're peers on exactly this side. The key open question on every tool row is whether it's actually running or just named in the playbook.
+    </div>
+
+    <div class="scroll-x">
+      <table class="decision-log" style="min-width:700px;">
+        <tr>
+          <th style="width:140px;">Tool / Layer</th>
+          <th style="width:200px;">Renuka — proven &amp; running</th>
+          <th style="width:200px;">Sai — planned / open</th>
+          <th>Question to surface with her</th>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Operating agent</td>
+          <td>Claude Code — daily driver, months of use</td>
+          <td>Hermes as chief of staff, orchestrating Claude Code + Codex</td>
+          <td style="color:var(--text-dim);font-style:italic;">What in your setup assumes Claude Code specifically and won't port cleanly to Hermes?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Knowledge base</td>
+          <td>Obsidian — local vault, hard walls per context</td>
+          <td>Obsidian — hybrid (local + cloud), integrated personal core</td>
+          <td style="color:var(--text-dim);font-style:italic;">Does the bridge index stay lean as a wall grows large? Show a real vault.</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Conv. memory</td>
+          <td><span style="color:var(--amber);">Mem0 / G-Brain / Honcho — named, unclear if actively running</span></td>
+          <td>Mem0 + Honcho — planned as a real distinct layer</td>
+          <td style="color:var(--text-dim);font-style:italic;">Do you actually run these day-to-day, or does the vault do all the real work?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Skills mechanism</td>
+          <td>.claude/skills/ — markdown skill files, proven daily</td>
+          <td>Hermes saved-workflows — same content structure, different mechanism</td>
+          <td style="color:var(--text-dim);font-style:italic;">Which ~5 do you run daily? What did you build and never invoke?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Scheduler / cron</td>
+          <td>Minimal — thin layer added only after manual rhythm solid</td>
+          <td>Open — same principle applies; automate after 10+ manual runs</td>
+          <td style="color:var(--text-dim);font-style:italic;">Did cron help when you introduced it, or create a new maintenance layer?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Second builder</td>
+          <td>Not applicable — single-agent model</td>
+          <td>Codex as second builder alongside Claude Code under Hermes</td>
+          <td style="color:var(--text-dim);font-style:italic;">Any structural reason Codex wouldn't slot in? Or just untested?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Multi-agent</td>
+          <td><span style="color:var(--amber);">"One agent raises another" — aspirational, not yet running</span></td>
+          <td>Designed-in from day 1 — the Group B differentiator</td>
+          <td style="color:var(--text-dim);font-style:italic;">What is the actual blocker on multi-agent supervision — tool, trust, or architecture?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--text-bright);font-weight:500;">Calibration</td>
+          <td>Operating manual — fused psychometrics + behavioral log, proven</td>
+          <td>Same method; extend to all agents as a shared spine</td>
+          <td style="color:var(--text-dim);font-style:italic;">When did calibration actually change how it pushed back? Start now or after basics?</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <hr class="divider">

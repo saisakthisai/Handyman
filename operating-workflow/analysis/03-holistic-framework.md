@@ -92,6 +92,42 @@ horizontal distributed across actors and extended with Delegate + Verify.**
 
 ---
 
+## 2b) Continuous learning — the two loops (Governance spine, made concrete)
+
+"Continuous learning" is the operating name for the **Governance spine's feedback
+loop** — what turns static files into a living system. There are **two distinct
+loops** (Renuka blends them; we separate them):
+
+- **Process loop** — the system improves *how it works*: a correction becomes a
+  rule, a workflow is refined, a skill evolves. Refines Governance + Identity/calibration.
+- **Content loop** — the knowledge base improves: notes distilled, project state
+  refreshed, stale facts retired. Refines L3 freshness.
+
+Same rituals trigger both (session-end, reviews), but they **write to different
+places** and follow **different bleed rules.**
+
+**Learning-bleed rule (key, net-new):**
+> **Process-learnings propagate across all walls** (a verification pattern helps
+> everywhere). **Content-learnings stay walled** (a client fact never leaves its
+> wall). Learnings have their *own* confidentiality model.
+
+Where it lives: **Governance owns the loop · L4 rituals trigger it · L3
+episodic/feedback memory holds the content · Identity/calibration is refined by
+the process loop.**
+
+PICK from Renuka: session-end observations; compound-capture; every correction →
+permanent feedback file *with the why*; save validated wins too (or it drifts
+timid); the **durability test** (a learning that doesn't reload was never learned);
+anti-bloat (one rule/file, add only after re-explaining 2+ times).
+EXTEND: agent **proposes** learnings (not only human-pull); systematized
+cross-wall content-freshness audits.
+INVENT: agent-proposed-with-approval; the learning-bleed rule above; learning
+*about the agents* (which agent is reliable at what).
+PROBE her: how does feedback memory avoid bloat/contradiction over months? Does
+she ever **retire** a stale/wrong rule, or only accrete?
+
+---
+
 ## 3) The wall map (BDA isolation decision)
 
 Isolation is driven by **confidentiality / who-can-see-it, NOT by topic.**
